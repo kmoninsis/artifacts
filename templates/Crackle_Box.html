@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Vanina Tsvetkova</title>
+	<meta charset="utf-8" />
+	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<meta name="viewport" content = "width=device-width, initial-scale=1.0">
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/addons/p5.sound.min.js"></script>
+	<script language="JavaScript" type="text/javascript" src="sketches/crackleBox.js"></script>
+	<style type="text/css">
+		html, body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  background-color: black;
+}
+#totkoL {
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+}
+#totkoR {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+}		
+#iara {
+	position: fixed;
+	right: 30px;
+	top: 30px;
+}
+img:hover {
+	height: 150px;
+}
+img{
+	height: 80px;
+}
+video{
+	justify-content: center;
+}
+#info {
+	display: none;
+	position: fixed;
+	/*background-color: rgba(50,50,50,0.5);*/
+	left: 3vw;
+	top: 3vw;
+	padding: 10px;
+	max-width: 250px;
+	max-height: 80%;
+	text-align: left;
+	overflow-x: hidden;
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+}
+#info::-webkit-scrollbar {
+	display: none;
+}
+
+
+.text {
+	color: rgb(50,70,70);
+}
+#btn{
+	position: fixed;
+	left: 3vw;
+	top: 3vw;	
+}
+
+	</style>
+
+</head>
+
+
+<body>
+<div id="info">
+	<h2 class="text">Crackle Box</h2>
+	<p class="text">Michel Waisvisz designed and built the very first Crackle circuit in the late 60s together with Geert Hamelberg. This was simply a wooden frame with some print boards mounted rear-side up to be touched by the fingers. The circuits were 'malformed'oscillators that were very unstable and highly sensitive for finger connections. The Crackle circuit, as well as the powered speaker box, were battery powered to avoid repeated exposure to dangerous electrical shocks.</p>
+	<p class="text">After visiting Steim in Amsterdam, and inspired by the presentation from Dick Rijken and driven by my fascination with the Crackle box of Michel Waisvisz, I decided to create my own Crackle Box. During my research I found out that I can build one from old battery powered radios.
+	</p>
+	<h3 class="text">Manual</h3>
+	<p class="text">Plug the crocodile cables onto the battery. (+ to +, - to -) Make sure your fintertips are moist (not wet), this enhances the conductivity of the electronic surface.</p>	
+</div>	
+<img id="btn" src="images/crackleBox_icon2.png">
+
+	<footer>
+		<a id="totkoL" href="We_Ourselves_and_Us.html"><img src="images/totko.png" ></a>
+		<a id="totkoR" href="Method.html"><img src="images/totkoR.png" ></a>
+	</footer>
+<script type="text/javascript">
+
+		var btn = document.getElementById('btn');
+		var divStyle = document.querySelector('#info');
+		var div = document.getElementById('info');
+		div.style.display = "none";
+
+		btn.onclick = function(){
+			console.log(divStyle.style.display);
+			if(divStyle.style.display == 'none'){
+				div.style.display = 'inline-block';
+				btn.style.display = 'none';
+			}
+		} 
+		div.onclick = function(){
+				div.style.display = 'none';
+				btn.style.display = 'inline-block';
+		}		
+			
+
+</script>
+
+</body>

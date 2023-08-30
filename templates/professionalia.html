@@ -1,0 +1,1346 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Vanina Tsvetkova</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content = "width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/addons/p5.sound.min.js"></script>
+    <script type="text/javascript" src="sketches/personalia_title.js"></script>
+    <script src="https://player.vimeo.com/api/player.js"></script>
+
+<style type="text/css">
+    html, body {
+  height: 100%;
+}
+body {
+  display: flex;
+  background: #fdff00; /* Old browsers */
+  background: -moz-linear-gradient(left, #fdff00 20%, #ece200 20%, #ece200 40%, #ffee42 40%, #ffee42 60%, #d0db2e 60%, #d0db2e 80%, #c9ff00 80%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, #fdff00 20%,#ece200 20%,#ece200 40%,#ffee42 40%,#ffee42 60%,#d0db2e 60%,#d0db2e 80%,#c9ff00 80%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right, #fdff00 20%,#ece200 20%,#ece200 40%,#ffee42 40%,#ffee42 60%,#d0db2e 60%,#d0db2e 80%,#c9ff00 80%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fdff00', endColorstr='#c9ff00',GradientType=1 ); /* IE6-9 */
+  padding: 0;
+
+}
+@font-face {
+font-family: "roboto";
+src: url("images/fonts/robotomono-regular.ttf");
+
+}
+
+#totkoL {
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+}
+#totkoR {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+}       
+.btn:hover {
+    height: 150px;
+}
+.btn{
+    height: 80px;
+}
+
+/*Divs*/
+.main {
+    width: 100%;
+    font-size: 15px;
+    font-family: 'roboto';
+}
+.main .col{
+    position: relative;
+}
+.col {
+    
+    height: auto;
+}
+.center {
+    /*position: absolute;*/
+    width: 80%;
+    height: 100%;
+    margin: 0 auto;
+    padding-top: 200px;
+     /* verdana, arial, calibri, candara, comic sans */
+    min-width: 1200px;
+}
+.personalia{
+    width: 100%;
+    height: auto;
+    display: none;
+}
+::-moz-selection{
+    background-color: rgba(238, 175, 97,0.5);
+}
+::selection{
+    background-color: rgba(238, 175, 97,0.5);
+}
+.professionalia{
+    width: 100%;
+    height: auto;
+    display: none;
+
+}
+
+.fmiDiv{
+    display: block;
+    position: absolute;
+    /*margin-top: 600px;*/
+    /*margin-bottom: 50px;*/
+    bottom: 0;
+    width: 100%;
+    height: auto;
+    text-align: center;
+    color: black;
+}
+.tutors{
+    display: block;
+    position: relative;
+    padding-top: 50px;
+    /*bottom: 10%;*/
+    width: 100%;
+    height: auto;
+    text-align: center;
+    color: black;
+}
+
+.totkoDiv{
+    width: 100%;
+    height: auto;
+    position: relative;
+    color: #ffec82;
+    text-align: left;
+    /*font-style: italic;*/
+    margin-left: 0px;
+    padding-left: 300px;
+    padding-right: 300px;
+    margin-top: 50px;
+    /*overflow: auto;   */
+    
+}
+.ninoDiv{
+    width: 100%;
+    height: auto;
+    position: relative;
+    color: #ffec82;
+    padding-left: 300px;
+    padding-right: 300px;
+    text-align: right;
+    margin-top: 50px;
+}
+.viviDiv{
+    width: 100%;
+    color: black;
+    text-align: right;
+    padding-left: 300px;
+    padding-right: 300px;
+    margin-top: 50px;
+
+}
+.bendidaDiv{
+    position: relative;
+    height: auto;
+    width: 100%;
+    color: #ffec82;
+    text-align: right;
+    padding-left: 300px;
+    padding-right: 300px;
+    margin-top: 50px;
+}
+.totkoDivProf{
+    width: 100%;
+    height: auto;
+    position: relative;
+    color: #09b5b2;
+    text-align: left;
+    font-style: italic;
+    margin-left: 0px;
+    padding-left: 300px;
+    padding-right: 300px;
+    margin-top: 50px;
+    
+}
+.ninoDivProf{
+    width: 100%;
+    height: auto;
+    position: relative;
+    color: #09b5b2;
+    padding-left: 300px;
+    padding-right: 300px;
+    text-align: right;
+    margin-top: 50px;
+}
+.viviDivProf{
+    width: 100%;
+    color: black;
+    text-align: right;
+    padding-left: 300px;
+    padding-right: 300px;
+    margin-top: 50px;
+
+}
+.bendidaDivProf{
+    position: relative;
+    height: auto;
+    width: 100%;
+    color: #09b5b2;
+    text-align: right;
+    padding-left: 300px;
+    padding-right: 300px;
+    margin-top: 50px;
+}
+.breakDiv{
+    width: 100%;
+    height:50px;
+}
+.extraDiv{
+    color: #ffec82;
+    font-style: italic;
+    text-align: center;
+    padding-right: 25%;
+    padding-left: 25%;
+    padding-top: 50px;
+}
+.extraDivProf{
+    color: black;
+    font-style: italic;
+    text-align: center;
+    margin-top: 100px;
+    padding-right: 25%;
+    padding-left: 25%;
+    padding-top: 50px;
+}
+/*Texts*/
+.quote{
+    text-align: justify;
+    color: pink;
+    font-style: bold;
+}
+
+.iara{
+        
+}
+
+.title{
+    position: relative; 
+    text-align: center;
+    font-family: monospace;
+}
+#title1 span{
+    cursor: url('images/nino-cursor.png'), auto;
+}
+#title2 span{
+    cursor: url('images/nino-cursor.png'), auto;
+}
+#personalia{
+    display: none;
+
+}
+#professionalia{
+    display: none;
+
+}
+
+/*Images*/
+.totkoImgDiv{
+    position: absolute; 
+    height:100%; 
+    margin-left: -300px; 
+    float: left; 
+    clear: both;
+}
+.ninoImgDiv{
+    position: absolute; 
+    height:100%; 
+    width: 300px;
+    float: right; 
+    clear: both;
+    right: 0;
+}
+.bendidaImgDiv{
+    position: absolute; 
+    height:100%; 
+    width: 300px;
+    float: right; 
+    clear: both;
+    right: 0;
+}
+.avTotko{
+    position: absolute;
+    display: block;
+    top: 50%;
+    height: 300px;
+    margin-top: -150px;
+    -moz-user-select: none;
+}
+.avNino{
+    position: absolute;
+    display: block; 
+    height: 300px;  
+    top: 50%;
+    margin-top: -150px;
+    -moz-user-select: none; 
+}
+.avVivi{
+    position: relative;
+    height: 300px;
+    float: left;
+    margin-left: -300px;
+    clear: both;
+    -moz-user-select: none;
+}
+.avViviR{
+    position: relative;
+    display: inline-block;  
+    height: 300px;      
+    float: right;
+    clear: both;
+    margin-right: -300px;
+    right: 0;
+    -moz-user-select: none; 
+}
+.avBendida{
+    position: relative;
+    height: 300px;
+    top: 50%;
+    margin-top: -150px;
+    -moz-user-select: none;
+}
+/*p::selection {
+    color: white;
+    background-color: #0074fe;
+}*/
+.popover {
+    max-width: 100%;    
+}
+.pops{
+    font-weight: bold;
+    text-decoration-line: underline;
+}
+.accordion{ 
+    font-weight: bold;
+    text-decoration: underline;
+    cursor: pointer;    
+    transition: 0.6s;
+}
+
+.professionalia .active, .accordion:hover {
+    font-weight: 9pt;
+    background-color: #ece200;
+}
+.personalia .active, .accordion:hover{
+    font-weight: 9pt;
+    background-color: rgba(238, 175, 97,0.5)
+}
+
+.panel{
+    display: none;
+    padding: 18px;
+    padding-bottom: 20px;
+    margin-top: 18px;
+    max-height: 0;
+    background-color: black;
+    color: white;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}
+#space{
+    cursor: url('images/nino-cursor.png'), auto;
+}
+.info{
+    text-decoration: none;
+    position: absolute;     
+    width: 100px;
+    transform: scaleX(-1);
+}
+.info:hover{
+    width: 150px;
+}
+#about{
+    right: 50px;
+    top: 50px;
+}
+#praise{
+    left: 50px;
+    top: 50px;
+}
+
+</style>
+
+
+</head>
+
+
+<body>
+    <div class="main">
+        
+        <a href="about.html"><img class="info" id="about" src="images/tromba.png" ></a>
+        <a  href="praise.html"><img class="info" id="praise" src="images/obj08sm.png" ></a>
+        <div class="fmiDiv" >
+                MA MADtech •                
+                Frank Mohr Institute • Minerva Art Academy •
+                Hanze University of Applied Sciences •
+                
+                Groningen •
+                
+                June 2020
+            </div>
+        <div class="center">
+            <div class="title">
+                <div id="title1">
+                    <span id="personalia">PERSONALIA</span>             
+                </div>  
+                <div id="space" style="width:100px; display: inline-block;"></div>          
+                <div id="title2">
+                    <span id="professionalia">PROFESSIONALIA</span>
+                </div>
+            </div>
+            <div class="tutors">
+                Supervisor • Drs. L.H.M.P. Leo Delfgaauw 
+                <br><br>
+                Guiding tutors • Jan Klug & Ruud Akse
+
+
+            </div>
+                
+            <div class="personalia">
+                    
+            
+                <div class="breakDiv" style="height:auto; min-height:900px;display: flex;justify-content: center; align-items: center;position: relative;padding-top: 250px;">
+                    <img style="display:block;height: 800px;position: relative" src="images/anatomy01.png">
+                    
+                </div>
+                    <br><br>
+                    <h4 class="title" style="font-size:20px">Vanina Tsvetkova, MADTech, May 2020
+                    </h4>
+                    
+                    <h2 class="title" style="font-size:15px">With the exceptional support of Nino, Totko and Bendida.
+                    </h2>
+                <div class="totkoDiv">
+                    <div class="totkoImgDiv"><img class="avTotko" src="images/totko_smooth.png" ></div>
+                    
+                    Dear reader. My name is Totko and I am your guide through the multiverse of my creator - miss Tsvetkova. Together with Nino and Bendida we are going through some personal stories in an attempt to get to know her and what she stands for. 
+                    <br><br>
+                    "Multiverse, yes multiverse! Universes of beliefs, galaxies of acts and the space inbetween left free for experimentation gives birth to each of her works, as it is - rough yet refined, dramatic yet satiric, physical embodiment yet non physical, poetic yet critical."
+                    <br>
+                    Nino, 08.03.2020
+                    <br><br>
+                    We do not need to introduce ourselves,  you are going to get to know us better through the stories of Vanina. Our curiosity and disobedient characters, and non the less the incomparably fast paws of Bendida were the reason to be in possession of Vanina’s personal data now. You may want to know that in order to put all pieces of the puzzle together we follow no chronology:
+
+                </div>
+                            
+                <div class="ninoDiv" style="color:black;">
+                    <div class="viviImgDiv"><img class="avVivi" src="images/vivi_head.png" ></div>
+                    <h3>Mr. Coco</h3>
+                    
+                    According to the official item, <span class="accordion">Mr.Coco</span> was born in 2019 from a simple desire for survival. His father was a wild forest creature - unknown for humanity, his mother - a simple market woman, that was yet to discover how much there is to learn about such unconventional relationships.
+                    <div class="panel">                     
+                        Year 2020 is marked by the cruel Coronavirus pandemic. Mr. Coco is replacement for Covid-19.
+                    </div>
+                    <br><br>Mr. Coco grew up on the double each day. In today's fastforwarding and technologically advanced world his scrappy desire to develop fast and possess more and more knowledge turned him to be invincible. It didn't take too long for him to realize the potential of his power. It was not his wildness, but his human nature to shove him into a sense of pride, dominance and soon he started to enter each home taking life after life. 2020 started with fear for Mr.Coco. The most scary crisis he brought with himself was not the economical one, nor humanitarian or political one, it was the existential social crisis. Our world was shaken from its fundamentals. Our world was out of breath.
+                    <br><br>Small interruption: 
+                    <br> Today: 2nd of April. The jokes traditionally on <span class="accordion">1st of April</span> are one of the most reviving spirit spring festivities I've always waited forward. But the jokes from yesterday were unbearable to me… I could not be sane in chat rooms and social media, for the common spirit was gloomy and loud, and my optimistic spirit was long ago crushed in there.
+                    <div class="panel">
+                        1st of April is the international day of the Joke. This day is attractive with the capability of humans inventive capability in the name of hearty fun.
+                    </div>
+                    <br><br>The good news is that Simon was fired from his new job last week. They simply told him they don't need the new employees due to lack of work. I love having more time together, although now we are both at home on our computers. Our occupation turned into an adaptation. I could not imagine it being more 'romantic'. After reading my horoscope for the day:
+                </div>
+                <div class="viviDiv" style="font-style: italic;" >                  
+                    
+                    ...{APRIL 02, 2020 - DAILY ASTRO PROGNOSIS FROM <span class="accordion"> MICHELLE </span>
+                    <div class="panel" style="font-style: normal;">
+                        MICHELLE or Mihailina Nikleva is my most accurate astrologer, but also a woman of wisdom and eternal love. I often tend to build my life according to her guidance. Thanks to her I learned how to synchronize my being with the stars. I often conduct rituals such as welcoming Venus in a new astrological sign each month, or bodily and spiritual purification through Ekadashi - These are special two days each month, which occur on the 11th day after the new moon, when the moon rises, and on the 11th day after the full moon, when the moon decreases.   <a target="_blank" href="https://www.astronews.eu/">https://www.astronews.eu/</a>
+
+                    </div>
+                    <br>The moon is still in Cancer and makes us more sensitive and intuitive. The tense part of the day will be until 2pm. By this time, you must be careful with the objective assessment, such will not be possible.We will still be affected by the difficult conjunction of Mars and Saturn in the first degree of Aquarius, which was on March 31. Many of the  accumulated restrictions and prohibitions towards us will take us out of patience today. Until 2 pm, do not rush with judgments and opinions and do not make promises. The commitments made so far will be difficult to fulfill.
+                    <br><br>The more harmonious part of the day occurs after 2 pm and by 7.50 pm a common language can be found, even with the opponents. The mood will improve and even the "black" thoughts will disappear.
+                    <br>Please note that we have a period of low efficiency from 7.50 pm to 9.27 pm. (moon without a course)
+                    <br>Until Mercury is in Pisces, we will all feel very insecure, disoriented and worried about our health.
+                    <br>Do not underestimate the situation. A peculiar peak in health, cleaning and disinfection concerns will coincide with Mercury and Neptune conjunction, which will be on April 4. It will arouse anxiety, uncertainty, but also incorrect judgments and probably confused and inaccurate information. Mercury in Pisces always makes us relate to the medical topic, worry about our health, fight viruses and bacteria.
+                    <br>The good news is that after April 11, Mercury is already moving to Aries and these concerns will gradually diminish and disappear, and the information will become much more accurate and reliable.}...
+                </div>
+                <div class="breakDiv" ></div>   
+                <div class="viviDiv"><img class="avVivi" src="images/vivi_head.png" >
+                     I am back writing my thesis, but a short glimpse through the window: ...a couple, slowly passing by, pushing carefully their bikes ornate with the biggest possible Lidl-bags, one in front and one on the back of each bike. They looked like ants, carefully trying to roll to their anthill bigger than them a crumb of white bread. The bags were so full that I could see sticking out the products very clearly. In my mind it appears two different case scenarios, I guess you can imagine both! But inside my heart I prefer to think that they have the mission to help an older neighbour for whom it is dangerous to go out in the circumstances Mr. Coco created for us.
+                    <br><br>
+                    Now our life is different in any single sense you can think of. I thought to myself - as an artist, I seek controversy, unconventional, nontraditional methods and modes of expression. I have the desire to take the daily and process it through my idiosyncratic prism, then place it back there as a complete new understanding, as a complete new mentality, as a complete new world. What was my purpose now, when everything has shifted so fast and so dramatically? What was there to be achieved or contributed? People alone have already started to slow down and turn back to themselves, observe their nature, rediscover the surroundings and realise that if we do not have the purpose to fulfill all self-created gaps in our world, that does not matter. It matters only to us - ourselves. Most will agree with me when I say that having purpose does not give too much to anybody but ourselves. It is true. Western society grew us in the <span class="pops" data-toggle="popover" title="Testtube" data-img="images/epruvetka.jpg">Епруветка</span> 
+                    of individualism, that disintegrated us from the needs of the rest, and made us "professionals".  Now every single body is so self fulfilled that the sense of purpose is pretty much a self centered process, giving the illusion that we have been needed. Therefore in the sense of individualism and neoliberal society I believe in the purposelessness of the people. Many times I was asking myself: can this just stop? Can we be again together, united under no political rule, untitled but true, unruly but together. Why unruly you would say! Because order creates the outlet of chaos, because lack of freedom( freedom in its true essence) is an outlet of rebellion. I do not see peace in any of those events and I wonder why we have been led so blindly to enter cooperative rule in the first place. It seems that no one intended peace, then why unions were created. Only for Economic reasons? It seems inevitable, all these doom scenarios were truly led by malicious, opportunistic, manipulative practices correlating with surveillance capitalism. That is in fact what brings me down. Mr. Coco enhanced the contrasting realities crowned by the false notion of freedom. 
+ 
+                    
+                    ...I know what is from me to be achieved, I knew it since I was a little child. 
+                    
+                </div>
+                
+                
+                <div class="ninoDiv" style="font-style: italic;">
+                    <div class="ninoImgDiv">
+                        <img class="avNino" src="images/nino.png" >
+                    </div>
+                    <p style="font-style: normal;">It is good if we place this here:</p>
+                    <p>“Contrary to popular belief, it is given to artists, not politicians, to create a new world order.” </p>
+                    Alex Danchev
+                </div>
+                
+                <div class="totkoDiv">
+                    <div class="totkoImgDiv"><img class="avTotko" src="images/totko_smooth.png" ></div>
+                    
+                    In fact Mr. Coco has brought with his rage the polemic of union today. Unions (global political, health..) failed to achieve common understanding, the professionals whose role was to react on time and with proper measures - unsuccessful, while self organized society working towards what the system has failed to provide - care.
+                </div>
+                
+                <div class="extraDiv" >
+                    "... It is essential to distinguish status, role, function. Every morning you have to do an exercise. Make a clear distinction between status, role function. If in an hour we have forgotten, we must repeat it: status, role, function. 
+                    <br><br>
+                    The status is related to the payroll, it is marked on it: the guardener, the book keeper, the director, the nurse. That is the diploma. And the hierarchy. Now and the function? It is much more complicated. In a community with patients of all types, a "care function" is developing itself. But who is the care function? Because I always hear, even by friends, there are caregivers and care. There is a care function, but if the caregiver is not careful for care, he is no longer a caregiver. He has to do something else! A psychoanalyst who does not make progress after 10 years of seeing people is incurable! The care function is a shared function (...) And the role then? Often it is the other who gives it to you. You have a role that you did not know. You learn that you have a therapeutic role or not... "
+                    <br><br>
+                    <span style="display:block; text-align:right;">Jean Oury << L'analyse institutionnelle >> 2008</span>
+
+                </div>
+                <div class="breakDiv"></div>
+                <div class="bendidaDiv">
+                    <div class="bendidaImgDiv">
+                        <img class="avBendida" src="images/iara.png" >
+                    </div>
+                        During her childhood she has been dedicated to many hobbies, besides her regular studies. Without the knowledge of her parents at age of 7 she already participated beside all school activities in several workshops such as biology science(at the scientific and technical union of Sliven), puppetry crafts and sewing mastery (at the former pioneer home), theater, painting and drawing. She had her busy daily life including the shared household responsibilities together with her older sister Zvezditsa, which by the way she adored and followed like a programmed robot puppet even though she had been defined by her parents as an outstanding individualist. 
+                        <br><br>
+                        They helped a lot, because their parents were very busy and even brought their work often home:
+
+                </div>
+                <div class="viviDiv">
+                    1991. It was at the time of transition in Bulgaria after the harsh comunistic regime towards the 'bright' and unknown future of me and my peers. And the generation of my parents have celebrated that as a freedom and liberation. I still remember so vividly the rallies on the streets and squares; the mass chant "Communism is going away, sleep tight kids" accompanying the rock and roll song of <span class="accordion"> Vasko Krupkata</span>
+                    <div class="panel"><iframe width="560" height="315" src="https://www.youtube.com/embed/rKGKcKpMadE" frameborder="0"></iframe></div> 
+                </div>
+                <div class="extraDiv">
+                    <br>
+                    <br>"...The land is nationalized  
+                    <br>the fields are poisoned
+                    <br>the water is polluted
+                    <br>and the soul is suppressed
+                    <br><br>
+                    <br>The haircuts are short (note: forced to have short haircut)
+                    <br>the beards are shaved (note: forced to shave their beards)
+                    <br>stamps on our legs ( note: a way of shaming )
+                    <br>but the times are changing
+                    <br><br>
+                    <br>[Chorus]
+                    <br>Communism is going away
+                    <br>communism is going away
+                    <br>communism is going away
+                    <br>sleep tight kids
+                    <br><br>
+                    <br>They isolated us from the world
+                    <br>they accused us of treason
+                    <br>the police beat us
+                    <br>and they honored themselves with medals
+                    <br>In residencies they hid
+                    <br>they build labor camps
+                    <br>they twisted history
+                    <br>but things have changed
+                    <br><br>
+                    <br>[Chorus]
+                    <br>Dictators are changing
+                    <br>they are once again in charge
+                    <br>the lies remain and the country's debt is raising
+                    <br>archives are destroyed
+                    <br>people are separated
+                    <br>they go abroad,
+                    <br>but the fight goes on..." 
+
+                <br></div>
+                <div class="viviDiv"><img class="avVivi" src="images/vivi_head.png" >
+                <br><br>… me sitting up on the shoulders of my father and blowing, with all power that I have, <span class="pops" data-toggle="popover" data-img="images/tromba.png">a horn.</span> I was one of the youngest to celebrate our freedoms and I received the surrounding adoration including from this smiling man approaching us. This was the first time I saw <span class="accordion">Mr. Terziev</span>.
+                <div class="panel">
+                    Between the crowd I remember vividly a man with long curly hair who passed by blowing a horn. He saluted me with the most heartwarming smile. His horn sounded funny, I thought. This moment marked our common moment of happiness, and future friendship. My mommy told me - Greet gospodin Terziev, so I did - very shy. Gospodin Terziev was the creator and the director of the Art school where I graduated Icon-painting later on. He was my painting teacher. Iconic figure fighting for justice and equality, the one who led peaceful protests and was followed by the entire intellectual guild of Sliven. He was the one to connect, and never separated anyone, for he found the concept of divide and rule despicable. I knew he had something magical - reading the innermost, the human spirit condition and influencing it with his goodness. Not by accident he was a painter - not just a painter but a virtuoso of the brush and colours - for he would bring so much color in our days. He was the most kind soul I ever knew, he is my example, my role model, my creator.
+                </div>
+     
+                <br><br>I knew that something big is about to come, but I will never forget the happiness and smiles on the faces of all people. The euphoria, the uplift energy, the happiness of the masses, the attuned spirit of all are still the most significant memories in my mind, one of the most remarkable. 
+                <br><br>Now when reflecting back on these events, I think it is very uncommon today to collect such big masses on the streets just to celebrate their freedoms and/or express their happiness in one single voice together. Everything today seems to be defined as acts of protests that barely can unite hundreds of people together, or concerts or festivals where you have to follow a certain etiquette of behaviour. Somehow the essence of freedom has been polluted with the doctrines of our conservative present reality. With each new era of understanding we have to protrude again and again what freedom is for us. We have to define it, manifest it, to celebrate it all over and over again in order not to face any difficulties that have been applied to our understanding, or embedded through history, education or any political or religious implications.
+                <br><br>
+                <span style="font-style: italic;color: #6a0d83">"Ние каква я мислехме а тя каква стана…(what we have thought, and what has happened..)"</span>
+                <br><br>
+                In practice we welcomed the most poor decades of our lives. Тhe communist party withdrew all capitals from the reserves and left our generation nothing pointing and blaming the newborn democracy for all faults.
+                <br><br>
+                I remember that very often my parents couldn’t give me and my sister pocket money, and sometimes I was hungry at school hiding in the lunch break so my friends did not get to know that I am poor. But the misery was not only in my family, but overall and I got to know that while observing the picture in my school. Ninety percent of the children's families had serious financial problems, and the act of  hiding and pretending that everything is alright has been gone with the freshly departed comunist regime. Many of my school friends could just get breakfast in advance and pay later, as I did in my most hungry times. The embarrassment also faded away with the amplified instincts of survival. We were lucky to have a sweet <span class="accordion">'lavka'</span> sales clerk who would treat us as his children. Trust, honesty and thankfulness has built up in my childhood becoming an essential part of my personality. Of course, the biggest clashes in my life were also elicited from their opposites, but that's another story. For me there was no overtrust, just trust. Take it as it is. Some say it is due to being foolish, longing to be loved, accepted or appreciated, but I believe that my most bright examples possessing these qualities were just loving people with a good heart. I wanted to be like them.
+                <div class="panel">
+                    Lavka - a school breakfast pavilion
+                    <img src="">
+                </div>
+                </div>
+                <div class="breakDiv"></div>
+                <div class="bendidaDiv">
+                    <div class="bendidaImgDiv">
+                        <img class="avBendida" src="images/iara.png">
+                    </div>
+                    I found that letter amongst many:
+                </div>
+
+                <div class="breakDiv"></div>
+
+                <div class="viviDiv" >
+                    <span class="accordion"><h3>To Baba Mitka and Diado Ancho</h3></span>
+                    <div class="panel">
+                        Baba(Баба) means Grandma, Diado(Дядо) means Grandpa = Grandma Mitka and Grandpa Ancho. Ancho is a small form for Ivan. Ivan - Ivancho - Ancho.
+                    </div>
+                    My granny was the soul of the earth. I don’t know a person who is more in tune with nature as my granny was. The most delicious fruits and vegetables that I have ever tasted came from her garden – garden of abundance and love. She and my grandpa were known wide with their generosity and goodness. My grandpa was the best man in the village, not because he wanted to be – but, because he helped everyone in need. He was known with his good heart amongst the entire region. His name was literally traveling kilometers before his arrival. When people asked us on the way <span class="accordion">“from whom you are”</span> – we said “Pavlovi” – and the river of praise, affection and joy has always started from the people on the road.
+                    <div class="panel">
+                        “from whom you are” is a common question addressed to the young and children in order to get to know your origin, or - Which family are you coming from? - Pavlovi < Pavlovi marks the Family name of my grandparents.
+                    </div>
+                    <br><br>
+                    In the times of transition in my country there were days without bread on the shelves of the store – there was nothing on the shelves of the store. My family together with the family of my aunt would gather and collect enough money (sometimes in coins) exactly for the benzene to pay a visit to the village of my grandparents Baba Mitka and Diado Ancho. We would all squeeze in the old Fiat car of my uncle, we - the children - on the laps of our mom’s and pap’s. Real idyll (Истинска идилия!) – we would say smiling. We would pass villages, honk and greet people from village to village on our way to Radetski. And the euphoria would rise and rise with approaching the village. My Granny would almost run when she sees us arriving, hurrying to open the door and welcome us all. The joy of being at our grandparent’s house was overall and so memorable a moment in my life. We would spend the most awesome weekend by their house. Everybody - from the youngest to the oldest - would help our grandparents with what there was needed. And we would love helping them out. In return, or because that’s just what loving grand/parents do, we would receive fresh food from their garden, conserves and food goods. I loved helping them out and spending time with my grandparents and all that comes with life there - the traditions and everything I learned from crafts, through delicious recipes, helping at the land site, making wine, to helping and playing with the animals ( lambkins, chickens, piglets were all my friends :). Many times I would go for the summer vacation to Radetski. I loved my grandparents so very much, I loved the tranquility and honesty in everything there. I am thankful to them for the value system they have given to me and my family, for the endless care and support and love. I will always remember them with their good hearts and hardworking hands.
+                        <br><br>
+                    
+                    <h3 style="font-style: italic;">On Granny</h3>
+                    <br>The soul of the earth is gone
+                    <br>But yet alive in all our
+                    <br>Hearts – deeply touched from her care and devotion.
+                    <br>She was seemingly so small,
+                    <br>But her love cocooned the entire earth.
+                    <br>Her heart - open door for everyone!
+                    <br>Honesty, hard work, goodness
+                    <br>Were her heroic armor.
+                    <br>And yet so many virtues
+                    <br>She did not desire any fast glory or success,
+                    <br>But built colossal, dignified mountain-
+                    <br>The tops of which - inaccessible to everyone
+                    <br>"She went and left us", said Mom
+                    <br>And I felt how…
+                    <br>The soul of the earth is gone!
+                    <br>She went and left us an important mission -
+                    <br>To climb the top of the mountain
+                    <br>That throughout her entire life she had built
+                    <br>In this unearthly site
+                    <br>There is no room for infidelity and malice
+                    <br>This is place for mental sowing
+                    <br>Endless devotion, faith in people
+                    <br>And, deep prayer
+                    <br>That faith I see in Mom,
+                    <br>In my sister and in me it is…
+                    <br>...the soul of the earth!
+                    <br><br>
+                    28/1/2017
+                    <br>
+                </div>              
+
+                <div class="viviDiv"><img class="avVivi" src="images/vivi_head.png" >
+                    <h2>Catalyst</h2>
+                    Vanina - <span class="accordion">Lavina</span> or Vanche - Avalanche
+                    <div class="panel">
+                        Lavina or Лавина from Bulgarian means avalanche. In my early childhood and till now, some of my family call me cute Vanche ( or Vane, Vani, Vaninche, Vaninka, Vivi etc.)
+                    </div>
+                    <br><br>
+                    The stress had quietly demolished and obliterated my body and mind. I felt each single part of me descend in pain. On 4th of April I hit the bottom of my emotional stability. I went so mad, and as a reaction - my body so sick that in my mind, this was the end. This was my end!  My ears were whizzing so strong I could not hear anything but my inner voice blaming me of failure, fallout, frivolity. My blood pressure hitted the highest, my pulse was so fast and strong that it was physically visible. Everything revolved around me so fast that I couldn't keep balance. A thundering moment of catharsis and nothing to detent it. Nothing! I did not feel my youth strength either, nor was I anymore capable of controlling the possible fatal destiny so well. All bad memories overwhelmed me once again as an unavoidable storm without passage. The moments of hitting myself as a child - uncontrollable anger evoked by adults' sense of humor and ridicule towards me. The extreme confusion as a teenager for the projected fears and decay from the generation of my parents. The corrupt and aggressive world I was trying to survive, the self denial in my twenties and unpossibility for me to realise my talents. There was an ironic Constructivism in my self- denial! Yet, in unbearable situations I could manage to stay strong and with ease save everyone out of it, except myself. When hurt, I will dwell in that black hole of memories and emotions until it swallows me once and for all. All those are so saturated stories that I need to write a couple of books in order to be understood completely and follow through with my <span class="accordion">Miss.Fortune</span>. <div class="panel">
+                        Mis. Fortune comes in my life for good and bad, and it combines both - Fortune and Misfortune. Or as we say: 'Всяко зло за добро' - Every evil comes for good.
+                    </div>
+                    The occurrence of each adversity in my life looked like a beautiful landscape. At first glance all seemed to be so beautiful and peaceful. Imagine tall mountain peaks covered in white snow blanket. Gentle and unique in its beauty, snowflakes dancing down from the cotton clouds. But the snow is accumulating in the bosom of the mountain. Storm chances are hourly. The weather can change any second and it can bring furious wind emptying the clouds too fast. Be aware, there will be an avalanche released. Avalanche that would threaten its moulder who by the time is crossing its vast white and virgin expanse in order to understand that phenomenon. But you know, the end was always one - deliberate and unavoidable self destruction. The avalanche would take the life of its creator and bury him under that maze of white deafness. 
+                    <br><br>
+                    <h3>Now!</h3><br>
+                    I did not have the power to be the transmitter. I could not ground any longer the madness of society. It harmed me my entire life with its brutality and false. I arrived at a point in my life that this had to end. I have found the love of my life, my peace and happiness. Now I knew - my legacy was to never repeat the same mistake of the generations before me. For they did project all their fears and doubts to their beloved ones. And why? For the sake of a single fashion - to keep the false image and feed their pride of a strong personality in public. No! For me this was wrong! Not only, for I loved Simon endlessly much and I did not want to harm him with that dark state of mind. I had to deconstruct that mentality, for this was a moldy era that had to go away. This mentality had to end now! And I thought of revealing that vulnerability through me, and it was necessary to grow out of this catarsis unharmed. <br><br>
+                    It was necessary to show everyone around that there is nothing to be ashamed of. <span class="accordion">The regime</span> 
+                    <div class="panel">
+                        The regime - reference to the Comunistic-Totalitarian Regime in Bulgaria. 
+                    </div>has left its idealistic scarves upon us, and shaking off our memories was not so simple. Or was it <span class="accordion">the Ottomans rule</span>
+                    <div class="panel">
+                        <h4>Ottomans rule</h4>
+                        <br> - During the otoman invasion in attempt to disseminate the islam relegion and convert the christians into muslim, the leaders of the Turkish armies would put a sword on the throat of each citizen and ask if he accepts Allah. Many lost their lives saying no, while moving their heads sideways to note their denial while the pressing sward was cutting their throats. From that moment on, The physical expression of Yes and No is reversed in Bulgaria. If you want to say Yes - you would move your head sideways, when No - you would move your head up and down. This is how in many villages at that time the locals preserved their faith, families and roots, deceiving the Turkish authorities. 
+                    </div> that would turn us into liars in order to spare the lives of our parents and children? Or is today's desire in our materialism and virtuality to become somebody else the podium for which the social platforms gave us space false identities?
+
+                    <br><br>
+                    Tell me how to share with the crowd in FaceBook my Miss.Fortune. I do not wish to share anything with impersonations. My profile would be expelled if I tell the truth. But this is not the thing to discuss here.  We are all aware of the censorship applied constantly upon us. The thing most disturbing is the value heist with a taste of dramatism in its glossy cellophane - exaggerated good or bad. Was it our priority to show our material abundance or vice putting us in the graph of hypocrisy and/or indifference?
+                    
+                    <br><br> 
+                    But I had a mission here! To haunt our demons from the past and release them for good. Let us be an example of truth even though it is painful. For there is no growth without pain. And, not all good things are necessarily beautiful as in the material conception of our society.
+                    <br><br>
+                    We presume that hiding behind our virtual wellbeings will save us from the insecurity all eras bring with? And, eras change fast! As in the past, when regimes had shaped the mentalities and distinguished hierarchy, resulting in hiding peoples true identities, so are Social Media Platforms of today causing emphasized hierarchy seeking individuals to show only the best of themselves - social schizophrenia. Dear fellas, today there is no room for falsehood. Now is the moment to reorder our priorities and show who we truly are. And please throw that wrapping away. The chance is given to us once more from our so feared Mr.Coco. <br><br>
+                </div>
+                <div class="totkoDiv">
+                    <div class="totkoImgDiv" >
+                        <img class="avTotko" src="images/totko_smooth.png" >
+                    </div>
+                    Once she was talking on the phone and here is what I have recorded: <br><br>
+                </div>      
+                <div class="viviDiv"><img class="avViviR"src="images/vivi_head.png" >
+                    ...The ones that I am ready to follow, I can count just on the fingers of my palm...And after all, if everyone is to choose having the privilege to construct their lives once more, I am sure most will choose instability again. Instability, but conscious! And, please embrace that. Once it is conscious, no predestined outcome is ever predicted. Let predictability fade away. Because you know to not just justify, but accept and appreciate each moment and what it brings to you! Think, what that brings to you, while you know we all change simultaneously and there is nothing permanent! We are able to live day by day and point our wisdom forward as a lit torch. - There we go! Where? Nowhere! That's the truth...  
+                    <br><br>
+                    ...In my mind sounds <a href="https://www.youtube.com/watch?v=FTeTaXJruhU" target="_blank">Alfred Schnittke's The Glass Harmonica</a>, or is my life more of <a href="https://www.youtube.com/watch?v=M3EuHTOLG8o" target="_blank">Story of an unknown actor</a>...
+                    <br><br>
+                </div>
+                                
+                <div class="totkoDiv">
+                    <div class="totkoImgDiv" >
+                        <img class="avTotko" src="images/totko_smooth.png" >
+                    </div>
+                    
+                    She is not just a single repercussion, but a catalyst of people's rebirth and facing no fear of failure, fragility, public rejection or being afraid of pointed at as an outkast; She is the transformator of all fears into self-judgement, self-acceptance, self-realization.
+                    
+                </div>
+                <div class="ninoDiv">
+                    <div class="ninoImgDiv" >
+                        <img class="avNino" src="images/nino.png" >
+                    </div>
+                    We knew that lately she has been accused of knowing what she wants to pursue and together with that "...her confident glow irritated many of us..." - Somebody said greasy! 
+                </div>
+                <div class="totkoDiv">
+                    <div class="totkoImgDiv" >
+                        <img class="avTotko" src="images/totko_smooth.png" >
+                    </div>                  
+                    - Here we go, you'll say. She is making the same mistake. She seems to look for the approval of the rest and even look as authority in their eyes? I guess she is hated for that. 
+                    <br><br>
+                    But I will prove you the opposite. As you and I already know how vulnerable people are -including Vanina, or as her at first -  sometimes due to lack of stability, or wounded ego, disgraced or suppressed by somebody's weakness, she has deliberately decided to ever be unstable. This brings her the comforts of change, the surprises of unpredictability and the fruits of the unknown. She did not like to judge anybody or to compare or to evaluate, she just saw the color and the intensity of people's light - some were red, blue, green, some shined very strong, some in a state of blinking or dying out. Most of all she liked the once that were glitching. She was able to draw the picture of people's momentary emotions with ease, but she kept that external vulnerability to herself, she believed that this is everybody's sacred place and nobody else is allowed to interfere. Respecting the margins of others, but expelinh her own one intentionally... As three of us, we follow her legacy and peregrine spiritism. There is the purity in thutness, and she would ever sacrifice herself in order to understand her surroundings. Isn't that beautiful...
+                    
+                </div>
+                <div class="bendidaDiv" style="color:black;">
+                    <div class="bendidaImgDiv" style="margin-top:-150px;">
+                        <img class="avBendida" src="images/iara.png" >
+                    </div>
+                    <p style="color:#ffec82;">During the first year of her master studie she received reaction on her participation in the class ‘Testifying Practices’ of Bibi Straatman:</p>
+                    <br><br>
+                    "...did I give already some reaction Vanina? I think you are a very nice and brave writer, AND artist, and that you have a very convincing way of testifying to what you want to
+                    achieve with art/design/technology.
+                    <br><br>
+                    Thank you for being in my class and bringing your perspective. I think many  *********  would need some of your optimism, activism, politically. Please make a new MANIFESTO for this school!
+                    <br><br>
+                    and have a very nice vacation!<br>
+                    Hope to meet you next year,<br>
+                    Dr. Bibi Straatman"
+                </div>
+
+                <div class="extraDiv">
+                    <h2>FMI Manifesto…</h2>
+                    <h4>2020</h4> <br>
+                    *We hold strong to who we are, but we change every single moment without notice. 
+                    <br><br>
+                    *Each of us is a single vibration whose impact is enormous and extraordinary. But please let it be positive and let it flow without demand. 
+                    <br><br>
+                    *Often situations occur and their impact changes the state of our mind and understanding of our surroundings, as we grow out of concepts into new ones rapidly, but we hold on together and no matter how vulnerable or strong we are at a certain moment we keep our good will to unite and support each other. And, we do that from the bottom of our hearths. 
+                    <br><br>
+                    *To be gentle and understand each of our fellow artists is a commitment, because we all carry a strong fire, ideals, we all have defined value systems, beliefs and hopes that construct our separate worlds. And, we have grown to appreciate and respect each of them. 
+                    <br><br>
+                    *We do not need a leader, for we all carry one deep inside, and that one is enough. 
+                    <br><br>
+                    *To bring forward your talents is to open your soul to our common acceptance.  
+                    <br><br>
+                    *The most valuable experience that brings us together and leaves the trail of friendship is the honor of truly getting to know each of your fellows - personally, not throughout tittle-tattle.
+                    <br><br>
+                    
+                </div>
+                <div class="breakDiv" style="height: 300px"></div>
+            </div>
+<!-- ###### --> <div class="professionalia">
+                    <div class="breakDiv" style="height:900px;text-align:center;position: relative;padding-top: 250px;">
+                        <img style="height: 100%;position: relative" src="images/anatomy10.png">
+                        
+                    </div>
+                    <br><br>
+                    <h4 class="title" style="font-size:20px">Vanina Tsvetkova, MADTech, May 2020
+                    </h4>
+                    
+                    <h2 class="title" style="font-size:15px">With the exceptional support of Nino, Totko and Bendida.
+                    </h2>
+                    <div class="totkoDivProf">
+                        <div class="totkoImgDiv">
+                            <img class="avTotko" src="images/totko_smooth.png" >
+                        </div>
+                        Her professional life started in her early age. Name it chain of coincidences or an early blossom, her interests regarding arts were developed naturally from her childhood throughout her teenagehood and now. I believe that not all art has to be learned, but as in her case, to be just her way of life/her being. As a child she would play in the sand and find clay from which she would create small and very realistic portraits of her grandma. Later she learned that what she did was named sculpture and the shock on the face of her basic teacher asking if she really made that is a good example. As most ancient sculptures and cave drawings inherited from our ancestors, whose necessity to reproduce what they see or embrace, you can say she'd naturally start from that point on to develop her artistry. The theater sketches she would play each day after school 'secretly' exaggerating the problems of the adults would turn a constant 'secret' entertainment of the adults themself. Her visionary world was more than a play, her talent to comically recreate the problems of the older became a learning behavioral platform for her parents/grandparents and neighbours. Named 'the little philosopher' and 'the crazy moving sound machine', the essence of what she did or touched was dressed with ethics. 
+     
+                        <br><br>
+                        Her world had its supernatural amplitude, probably comparable with Joseph Beuys' supernatural rebirth. According to her - a secret world each artist has, but not always intended to be visible, nor necessary of being a public issue, either discussible. It is good to leave things unsaid, even though she finds the beauty in vulnerability unprecedented. 
+
+                        <br><br>
+                        After graduating her <span class="accordion">Icon-painting degree</span> 
+                        <div class="panel">
+                            In my early teenage years I had the luck to be already professionally oriented and I was admitted amongst the first in the elite art high school in my hometown Sliven. Due to my high representation I was chosen to study the most special study subject - Icon Painting. There I met one of the most important people in my life, my friends that were also my teachers and my teachers who are also my friends, art bohemians and an extraordinary mixture of talents, free souls and beautiful spirits. My heart is filled with a surge of deep love and gratitude thinking of my art school and my people there. 
+                            <br><br>
+                            One of them was mr. Ianakiev. He was my drawing teacher, and later on when we ended up for some reason without a class teacher, he had to retire but instead he became our mentor. His wisdom was profound and a precious gift. His lessons were remarkably interesting, full of knowledge, but also laughable because of his hilarious stories. In our drawing sessions the models that were there for the first time and not yet used to the sense of humor of mr. Janakiev had real difficulty to keep still and avoid laughing. He had a big heart and treated us as his peers. He knew that most of us already smoke and drink, but at age of 18th when we all reached adulthood, he would take us after our lessons for a drink or a dinner. We all loved those moments. Rest in peace master
+
+                        </div>she felt locked in the birdcage of classical education - this was the time when she faced the paradox of being a roadless young creative. Those were the prerequisites at this time and space. During this period she put a couple of <span class="accordion">'new professions'</span> 
+                        <div class="panel">
+                            New Professions: Between the age of 18 and 24, I had many different professions in order to financially maintain myself. Salesman, Merchandiser, Interior designer, Treasureman/ Accountant are some of my unofficial professions. Even though I was an excellent student and could manage to intently present myself on all exams, all these occupations swallowed my entire time and energy, and I could not graduate my University study due to excessive daily job engagement. The exam that was not given to me due to not enough presence was Contemporary Art Practises with Orlin Dvorianov. This was one of the most disappointing periods of my life. I could no longer allow myself to be swollen by the system, or pend on the superficial extrinsic assessment of what I am. I went away...
+                        </div>on her back and went to the Netherlands. There she found her new 'body' and the metamorphosis towards her Palingenesis began.
+
+                    </div>
+
+                    <div class="extraDivProf">
+                        <h1>Metaphysics <br>
+                        of <br>
+                        We, Ourselves and Us</h1>
+                        <br><br>
+                        <h2>GENESIS</h2>
+                    </div>
+                
+                    <div class="bendidaDivProf">
+                        <div class="bendidaImgDiv">
+                            <img class="avBendida" src="images/iara.png">
+                        </div>
+                        In the question about her ways of investigating her work, she said:
+                    </div>
+                
+                    <div class="viviDivProf">
+                        "...My method of investigation is like Bas Jan Ader's Falling. For our life consists partly in madness, partly in wisdom. Sometimes only madness compels us.. , then wisdom comes as a gift within...
+                        <br><br>
+                         ...I cannot say how, but, most answers are signaled back to me from the universe -  where many significant 'artists' who have passed away still pass on..."
+                    </div>
+                
+                    <div class="extraDivProf">
+                         
+                    </div>
+                
+                    <div class="totkoDivProf">
+                        <div class="totkoImgDiv" >
+                            <img class="avTotko" src="images/totko_smooth.png" >
+                        </div>
+                        <h3 style="color:black;">His-Story / Re-legion</h3>
+                        ...There was something really disturbing about history, it was a subject that took a lot of energy to understand and was hard to grasp. After some years, in her teenage years, she realized that history is the most geopolitical subject matter of interest and she started to question all that facts, all that terminology having no analogy with our customs and beliefs in Bulgaria. Her history teacher by that time was <span class="accordion">Lilia Eqiuvska</span> and in their debates together she advised her to: "...search, and never trust or rely upon the facts and years given, read all literature that you can find, my dear child”, were her words, “and you will find the truth.” 
+                        <div class="panel">
+                            Lilia Eqiuvska was my History teacher in the Art Highschool. I respected and loved her deeply.
+                        </div>
+                    </div>
+                
+                    <div class="ninoDivProf">
+                        <div class="ninoImgDiv">
+                            <img class="avNino" src="images/nino.png" >
+                        </div>
+                        Something very relevant today are Orwell's quotations, so that belongs here:
+                    </div>
+                
+                    <div class="extraDivProf">
+                        “...Who controls the past controls the future. Who controls the present controls the past.” <br>
+                        <span style="display:block; text-align:right;">― George Orwell, 1984</span>
+                    </div>
+                
+                    <div class="viviDivProf">
+                        The systematic change of the study material at school and the forcefull, rapid adaptation towards the new historical waves, applied to me and my peers, could not escape my curiosity. I have an awake consciousness and a strong sense of justness since I can remember myself. Anyway, I will go for the truth, it does not matter the consequences I have decided firmly.  
+                        <br><br>
+                        It was difficult for me to grow in times of transition in a country pointed as an European outcast, but even worse - not knowing my roots. While witnessing destructive speculations I knew that this was the product of intentional foreign affairs.  
+                        <br><br>
+                        For years through my entire youth I felt as floating in the vastness of a flood. Lost notion of belonging. No sense of time. No sense of locus. Just transcendence...
+
+                        <br><br>
+                        During the years of my constant search for the truth, I found sources of knowledge that were kept a secret for centuries, sometimes millennia. Some documents were republished on the internet from contemporary researchers - academics, historians, science doctors and archaeologists. Most of these documents were preserved in deeply hidden monasteries on the outside periphery of Bulgaria, some came from far away - Mount Sinai monastery, Vatican, British Library, etc. Nothing was left in Bulgaria after the Ottoman invasion. Later in addition to that all historical books, sources of knowledge were buried with the beginning of the Russian-Bulgarian 'brotherhood'. I would not mention the Russian predecessors in crime, for most of them are now in deep regret, and I think that the young generations of people do not deserve to inherit the mistakes of their predecessors.  
+                        <br><br>
+                        This constant drifting was the reason for me to give a start to my research regarding Kukeri in 2014. I am interested in antropologie, and as an artist I thought that the most honest way to trace the lost roots is to go back in time - researching the most old and social ritual known today in the lands of the <span class="accordion">Thracians</span>.
+                        <div class="panel">
+                            Through the cosmic law, formulated in the deepest antiquity "As above, so below", i.e. nothing happens on Earth without a sign in Heaven. This truth was well known to the Incas, Mayans, Sumerians, Egyptians, and, as we understand from recent archaeological discoveries, to the Thracians. Every culture that prioritizes the development of the human Spirit has the goal of exploring man's connection with the cosmos, with the stars, with the sun.
+                            <br><br>
+                            The Thracian sanctuaries located in the Valley of the Thracian Kings were ancient observatories.
+                            <br><br>
+                            The architecture of each sanctuary in the valley is different. It preserves the memory of the ruler who created it. Initially, the sanctuary was a temple, and later became a "tomb" - a platform for retransmission of the spirit of the ruler. But according to archeologists, the common denominator between all Thracian sanctuaries is the astonishing accuracy with which they are oriented to the movement of the Sun - the supreme god of the Thracians. Signs have been found in each burial facility that show when the summer and winter solstices are, as well as the autumn and spring equinoxes and "where the light comes from."
+                            <br><br>
+                            According to ancient Greek chroniclers, the Thracian rulers knew the stars and their names. Ancient chroniclers also testify that the Thracians teached astronomy to the Greek kings. The womb cave near Kardjali, Belintash, Cult center Tatul, Golyama Arsenalka mound, Thracian Tomb of Sveshtari and more are the physical evidence of the accurate and profound astrological knowledge of the Thracians. 
+                            <br><br>
+                            It is well known in astrology that gold is a metal that according to the law of correspondence is associated with the Sun. It was this metal that was used by the Thracians in their religious ceremonies and rituals to connect with the energies emanating from the Sun. For them, gold was not synonymous with wealth, a medium of exchange or accumulation. Every priest, every ruler was buried along with the golden objects he used during religious ceremonies, because these objects had already absorbed his energy, his vibrations and could not be used by another. For the new priest or ruler, the skilled Thracian masters created new objects with ritual purpose.
+                            <br><br>
+                            However, gold became one of the main reasons for the demise of the Thracian civilization. The Greeks, who were not yet developed on the level of cultural and spiritual development,had more developed the material culture and way of life. The Greeks earlier began to use gold as a medium of exchange. Learning about the innumerable riches of the Thracians, about their gold mines, they invaded their lands, conquered some of the mines and destroyed the Thracian settlements.
+                            <br><br>
+                            Along with gold, however, the Greeks (and later partly the Romans) took something much more important than material wealth - the teachings of Orpheus. Orpheus was one of the Great Initiates of antiquity, we can call him the Spiritual Teacher of the Thracians. He used art as a method for the development of the human soul and as a means of communication with the cosmic forces. Over time, the teachings of Orpheus became the basis on which our well-known ancient Greek culture later developed.
+                            <br><br>
+                            Along with the cults and rituals associated with the god of mirth Zagrej(Gr. Dionisus), the Thracians left in history the memory of the thick Thracian wine. The ancient Thracians were the creators of the cult of wine and used it as a ritual gift for their deities. In that beautiful ancient world full of mysteries, wine was not used for ordinary drunkenness, but as a means of union with the gods. It was used by the priests in the rituals and mysteries played out in the Thracian sanctuaries.
+                            <br><br>
+                            Given that the Thracian temple symbolizes the work and functions of the sun, and the sun from an astrological point of view is associated with the heart, it is logical to imagine that wine in turn had a direct relationship with blood according to the Thracians. That is why wine and blood as a bearer of the spirit have been associated with sacraments since ancient times.    Millennia before the divine drink found its homeland in France, Italy and Spain, ancient authors described the unique qualities of the Thracian elixir, which is a big part of the present culture in the region. 
+                            <br><br>
+                            According to the most exaggerated stories, this wine “had to be diluted with water in a ratio of one to ten, and yet it was so strong and drinkable that it was impossible to detach your lips from the goblet.
+
+                        </div> Despite the black veil thrown on the Bulgarian identity and culture, I could relate to all preserved traditions and rituals kept unharmed for centuries. But my most precious source of information was unexpectedly so close. A lot of these sacred knowledge I inherited from my grandma. This wisdom was  complemented with what I've learned from my journeys through the Balkans.  
+                        <br><br>
+                        ...Traveling through the small picturesque Balkan villages you will be swollen by the warmhearted and humble spirit welcoming you to become part of the timelessness that reigns there. Here you are not just welcomed by the locals, but loved from the very first moment of your arrival. Here you can dwell in the expanse, you can learn stories from the time of <span class="accordion">Orpheus</span>
+                        <div class="panel">
+                            In ancient times, the Rhodope Mountains were famous for their beauty, a girl liked even by the gods. They secretly hoped to capture the beauty, each of them dreamed of her becoming his wife. The god Hemus was especially jealous of the girl and threw huge piles of stones to hide her from the other gods. (It is said that the Plovdiv hills grew out of these stone mounds.) But as he could not protect her, the god Hemus petrified the beautiful girl and she became a mountain.
+                            <br><br>
+                            The depths of this mountain were echoed by the wonderful songs of the most famous singer, Orpheus, with which he enchanted birds and animals. Orpheus once wandered all day in the mountains and sat on a peak to rest. Overwhelmed by the beautiful view before his eyes, he did not notice how a three-headed monster snake came out of a yawning rock. As soon as she saw the carried away boy, she dragged her torso towards him, sticking out her forked tongues with thick poison. Stones rolled and woke Orpheus from his trance. He shivered - there was nowhere to run, only rocks around. Stiff with fear, he sang. His song was so captivating that the snake froze and listened. Orpheus watched the snake enchanted by his song and continued to sing, song after song.
+                            <br><br>
+                            It is said that his song did not stop for three days and three nights. The monster snake slowly retracted its venomous tongues, pursed its lips, stretched, and lay on the ground. And as she listened, on the third night she fell asleep. As soon as he noticed that the snake was asleep, Orpheus jumped up and nimbly descended the slopes of the Rhodope Mountains. Where he went after that, no one ever knew. But the people of the Rhodopes kept in their memory his wonderful wide and long melodies, which still live in their wonderful songs. 
+                            <br>--Legends of the Rhodope Mountains by Stilian Damyanov--
+                                            
+
+                        </div> who once had lived in this mountains Rhodopa and whose temples - now ruins - collect many curious; the Thracian deity Elijah (Илия) and his chariot of fire and the worshipping rituals in his name; to visit the mountain peak where according to the local people is the tomb of <span class="accordion">the Thracian god Zagrej</span> (Adopted later as god Dionisus in the Helenistic mythology)<div class="panel">
+                            Thracian god Zagrej, or as known in the greek mythology - Dionysus is a major male deity in Thrace, the son of the Great Mother Goddess - Bendida. Every year in early spring, the Thracians celebrate the resurrection of their supreme god, killed and torn apart by the Titans. Together with him, all nature awakens to new life. Then people drink wine and prune the vineyards. During the festivities, Kukeri with scary masks appear, dressed in goatskin clothes, who act out scenes from the life and death of the god.
+                            <br><br>
+                            From Thrace the cult of Dionysus passed among the Greeks. After accepting him as a god, they created new legends to connect him with their mythology. Thus Dionysus was born twice, and his second mother was the Greek princess Semela.
+                            <br><br>
+                            The main sanctuary of the Thracians belongs to the god Dionysus. It is built on a high rocky peak with a round shape, without a roof, with a large altar in the center, where the priests predict the future.
+                            It was in this sanctuary that the fathers of Alexander the Great and Octavian Augustus learned that their sons would become rulers of vast empires. According to one of the assumptions, this temple of Dionysus was most likely located in the sacred city of the Thracians Perperikon, where archeological excavations have uncovered the foundations of a hall with a large circle. 
+                            <br>--antique village. eu--
+                        </div> - today it is still a sacred place for rituals where the energy is so high and if you are not prepared it hits you like a high voltage and overwhelms you with interminable euphoria; or <span class="accordion">the Devil's Throat cave</span>
+                        <div class="panel">
+                            Devil's Throat is associated with the famous legend of Orpheus. According to her, this is where the mythical musician tries to bring back his beloved Eurydice from the realm of the dead. Thanks to his lyre and his incredible song, he managed to reach Hades and negotiate with him. To save his wife's soul, Orpheus must follow Hermes to the exit of the underworld, followed by Eurydice. The condition is that the singer does not turn around and does not look at his beloved, because otherwise she will return to Hades. The way out is already visible when a loud roar (it is believed that the location of this incident is the Roaring Hall) drowns out the woman's footsteps, Orpheus, worried, forgets everything and turns to see if she is lost. He reaches out to her, but her shadow begins to recede. The singer froze. He grumbles and cries inconsolably for seven days. A spring gushes in this place, and today there is the altar with the figure of the Mother of God. According to legend, Orpheus remained faithful to his wife, even four years after her death. This infuriated the Bacchanalians. They stone him, tear his body, and his soul goes to the underworld, where his beloved Eurydice awaits him. From that moment on, they never separate again.
+                        </div> that does not have a way out  - considered a portal to the afterlife, and where dead leaders and warriors were thrown in the underground river to ensure their immortality. We are used to reading about such places and people in legends, or mythologies but they are preserved deep in the Balkan, they are physical and very true. 
+                        
+                        <br><br>
+                        The last decades are happily years of transparency, significant archaeological discoveries and reliable technologically advanced DNA studies. Therefore, much of what was suppressed and destroyed or stolen from tomb raiders or imperial interests now slowly comes back as knowledge. Due to years of censuring and blacklisting of studies regarding the history of Bulgaria, to the 'Sovjet' authorities was addressed an official  letter in which the Bulgarian science guild required the end of the neglect, suppression of the Balkan area and in particular the Bulgarian culture, identity and contribution to the world's heritage. By doing so these people fought the censorship and opened the way towards pluralism. But this pluralism brought even bigger confusion and diversion from the true facts. You may want to know that my concept for the truth is strictly defined - in reference to history, I do not believe that in a conflict/dispute truth can be born, and if there is any kind of negotiation then the truth is obviously compromised. 
+                        <br><br>
+                        From 2015 onwards, various gene-studies were conducted. This technologically advanced DNA studies marked the reverse point in the methodology of research - anthropologically/historically, it changed the way of seeing and approaching the past. This research confirmed the studies and beliefs of many and refuted the skepticism that the ancestors of the Bulgarians are the Thracians. 
+                        <br><br>
+                        We cannot turn our heads away from the origins of our true existence, our natural instinct to worship and depicting our cult towards the uncontrollable nature forces, as all cults start from there. How many more times the "Holy Book" is going to be rephrased and how many more gnostic movements and spiritual leaders are going to be needed in order to understand and start possessing this value system needed to have the seed of care, peace and love on earth? 
+                        <br><br>
+                        These were questions from my past, and ones that I still ask myself. After graduating my Icon Painting degree I lost track of my desire to pursue anything related to the Holy Realm. I knew already in my early youth that religion is a tool to control politically, and the priceless morals of Christianity were long gone - tainted by cruel rulers and diabolical church practices. I knew that you cannot search for faith in a building beholden by the shallow materialization of Christianity. 
+     
+                        <br><br>
+                        Let's go back to the Balkan. Here I was born again…
+
+                    </div>
+                
+                    <div class="extraDivProf">
+                        <h2 style="color:black;">ELEMENT</h2>
+                    </div>
+                
+                    <div class="bendidaDivProf">
+                        <div class="bendidaImgDiv">
+                            <img class="avBendida" src="images/iara.png">
+                        </div>
+                        We say that man is spirit, soul and body. This means thought, words and deeds. Thoughts have been already proven to be a higher energy - the creative power; the words are the influential tools of expression, so the deeds remain. 
+                    </div>
+                
+                    <div class="viviDivProf" style="margin-top: 100px;margin-bottom: 100px;">
+                        
+                        I consider my element to be my artistic expression in its momentum, medium, meaning, and vulnerability, where the process freely flows without restraint. 
+
+                    </div>
+                
+                    <div class="ninoDivProf">
+                        <div class="ninoImgDiv">
+                            <img class="avNino" src="images/nino.png">
+                        </div>
+                        How to be confident in your vulnerability is Vanina's magnum opus. When presenting or performing she often intends to break the formality through short peculiar actions and/or enhancing one certain feeling throughout the entire piece. The awkwardness that is created as a result is her tool to bring forward and activate our true nature, counterpointing all expectations, and changing our perception of 'normal' condition. The appearance of Vanina is a constant variable magnitude in attempt to give the audience a time breaker of all stereotypes, and create a new sense of belonging. This turns to be the identity naturally embedded in We, Ourselves and Us.  
+                    </div>
+
+                    <div class="viviDivProf">
+                        <h3>Flashback:</h3>
+                        My first performance was not planned, it just occurred naturally breaking the oficial mood at a public ceremony in Minerva academy. I cannot remember the occasion, but I remember the surprise and the reactions of the people. It was hilarious and open. This was the beginning of me being a performer, and I thought to myself that I would like to keep forth this latitude. Action-reaction.   
+                    </div>
+                    <div class="extraDivProf">
+                        <h2 style="color:black;" id="space" onmouseover="playSpace()">SPACE IS THE PLACE</h2>
+                        <audio preload="preload" src="images/Space_is_the_Place.mp3" volume="0.3"></audio>
+                    </div>
+                    <div class="totkoDivProf">
+                        <div class="totkoImgDiv">
+                            <img class="avTotko" src="images/totko_smooth.png" >
+                        </div>
+                        She never approaches space - space approaches her. She senses the space, encounters the space, and reacts to it.
+
+                    </div>
+                    <div class="viviDivProf">
+                        
+                        I consider my work related to space (physical, digital, virtual, inner/outer). I always think of the space as one of the most important elements signifying my work/performances. To think in the framework of space, enhancing the characteristics of it, that create the instant mood that surrounds my work. Scenography, as a fixed element in my work, takes a very big place as a tool to influence the state of mind, where interactive installations play with the notion of <span class="accordion">Environment vs. Nature</span> triggering perception. 
+                        
+                            <div class="panel" style="font-style: italic;">
+                                <h3>Gustav Metzger - Environment vs Nature</h3>
+                                <img src="images/metzger.jpg" style="display:block ;margin-left: auto; margin-right: auto; margin-bottom: 18px">
+                                <span style="font-style: normal;">I am fascinated by the book "Auto-destructive art" from Gustav Metzger and I often use it as a reference to my work. In some of my performances I like to read this part of the book:</span>
+                                <br>
+                                <br>First we had Nature.
+                                <br>And then came the Environment.
+                                <br>Environment is the smoke humanity has put on Nature:
+                                <br>The people who used Latin had no word
+                                <br>For environment - they only knew natura.
+                                <br><br>
+                                <br>There is an urgent need to redefine notions of nature and environment.
+                                <br>The term Environment has been hijacked by the forces that are manipulating the world.
+                                <br>When Mr Bill Clinton states that he would be the first 'Environmental President', what can this mean? Anything and nothing.
+                                <br>The term Environment lends itself perfectly to telling lies and giving illusions. The people who run production and distribution, the controllers of media, and Government, local and national, are systematically using the term Environment to hide realities, confuse the public, and distort their perception of reality.
+                                <br>This is being done for the basest of motives: to maintain profits and power. The term Nature is dropped, and replaced by Environment.
+                                <br><br>
+                                One way forward would be to drop the term Environment, and speak of Nature and damaged Nature.
+                                <br>This could be an interim stage, while the air is cleared, and the discussion brought onto a higher and more realistic plane.
+                                <br>The voidance of Nature, and its substitution by Environment, represents a grave threat to culture. The loose use of concepts, and the misuse, are the first step in the decline of culture. This is happening world-wide at present.
+                                <br>We are faced by a gigantic task: the deconstruction, de-definition, demystification, and redefinition of the term which sums up one of the big issues of our time - Environment.
+                            </div>
+                        <br><br>
+                        In search of the physicality of the space, I observe it as possessed by a force material condition, in its pulsation, vibration or echo. I underline its character and bring forward its essence in a playful interaction.
+                        <br><br>
+                        I can dress the space, enhance the space, but my most valuable interactions with it are the common attraction - when I see space I know what I want from it and in return I know what it wants from me. This is my site-specific nature.
+                        <br><br>
+                        In relation to my performances, I search for the space that has a strong amplitude in introducing / representing the characters ( Nino, Totko and Bendida ). 
+                        <br><br>
+                    </div>
+                    <div class="viviDivProf">
+                            <ul>
+                                <li>
+                                    In <span class="accordion">Vondel Bunker</span> 
+                                    
+                                    - The characters seemed to appear from nothing - from a closed door hidden behind dark curtains;
+                                    <div class="panel" style="text-align: center;">
+                                        
+                                        <img src="images/vondelbunker01.png" style="max-height: 300px;">    
+                                    </div>
+                                </li>
+                                    
+                                <li>
+                                    In <span class="accordion">Kink</span> the character Totko appeared from the elevator that was located next to my interactive video installation; The space that I chose intensified the clash between both realities - virtual embodiment vs. physical embodiment.
+                                    <div class="panel" id="kink">
+                                        <h4>Kink Assen</h4>
+                                        <video src="images/kink01.MP4" height="560px" muted loop></video>   
+                                    </div>
+                                </li>
+                                <li>
+                                    <span class="accordion">Basement of FMI</span> was turned into an underground club. DJ-booth hosting the tunes from customized turntable, Cracklebox, and visuals consisting of glitching balls/installation and interactive screen as part of the VJ-show. The characters had access to the pass doors and could walk in, dance and go away during the performance. 
+                                    <div class="panel" id="basement" style="text-align: center;">
+                                        
+                                        <video src="images/basement.MP4" height="560px" muted loop></video> 
+                                    </div>
+                                </li>
+                                <li>
+                                    In <span class="accordion">Orbit festival</span> the performances of We ourselves and us took place on the balcony of the synagogue, the space was narrow and allowed a sense of intimacy.
+                                    <div class="panel">
+                                        <div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/381821031?title=0&byline=0&portrait=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                                        </div>      
+                                    </div>
+                                </li>
+                                <li>
+                                    In <span class="accordion">NP3</span> the stage turned to be the edge of an emotional state of mind, the vitrine was used for interaction with everything that moves outside the gallery - webcam motion sensor sonification.
+                                    <div class="panel">
+                                        <div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/378383024?title=0&byline=0&portrait=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                                        </div>  
+                                    </div> 
+                                </li>                       
+                            </ul>
+                    </div>
+                        
+                    
+                    <div class="extraDivProf">
+                        <h1 style="color:black;">AEON</h1>
+                    </div>
+                    <div class="viviDivProf">
+                        We use to give names, define situations, depict them and after - point at them as an example. But the moment this situation occurs, it is often neglected and forgotten. What is the instance from which actions occur? In We, Ourselves and Us I tend to enhance actions, and give a special importance on the feelings that occur from these actions. Often exaggerating the moment of that action - prolonging it, or shortening it - so its importance turns into uncanny composition. The performative compositions can shift from ambient, to dramatic surrealism. 
+                        <br><br>
+                        Some actions can be described by words, some not. Here time comes as a measure. In the context of two dimensional as referring to actions, motion, moment - any attempt of depicting movement is narrowed down to its final stage. As in Icon Painting and in particular in Ascension*, Jesus is depicted already up in the clouds neglecting the entire physicality of the nature of Ascension. 
+
+                    </div>
+                    <div class="ninoDivProf">
+                        <div class="ninoImgDiv">
+                            <img class="avNino" src="images/nino.png">
+                        </div>
+                        As a poetic artist, romantic, irrational and always questioning, she tends to observe time in its phenomenologie and how we experience time, time based on our emotional conditions. For some reason we twist the perception of time, we tend to remember just moments, but not the entire days, months, years. By exploiting the topic of timelessness, she can enhance the importance of that moment, where time is the polarity of timelessness. She expands time by repetition of a single moment - there is no start, or end.                  
+                    </div>
+                    <div class="viviDivProf">
+                        Timelessness relates to the psychological time - subjective and unreal, prone to illusion or in my works idealised, iconic. Timelessness: where time is captured in a circle, it never evolves and it always occurs cognate as endless repetitiveness, as Jesus caught in eternal upward stream during his <span class="accordion">Ascension</span>.  
+                        
+                        <div class="panel">
+                            <div style="padding:42.19% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/217375167?autoplay=0&loop=1&title=0&byline=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe></div>
+                        </div>
+                        <br><br>
+                        We, ourselves and us resonate with that concept, in compositions where observing and exploiting time happenes as in a still-life. In the same context of thoughts I like to question often myself:
+                        <br><br>
+                        Where is the end of time? 
+                        <br><br>
+                        How do things continue after its end?
+                        <br><br>
+                        How many beginnings and ends time has?
+                        <br><br>
+                        How long does it take me to cross a black hole?
+                        <br><br>
+                        In which dimension can we walk backwards in time?
+                        <br><br>
+                        Can you remember the moment when you stopped paying attention?
+                        <br><br>
+                        Why does time give us more answers to questions, rather than questions to answer?
+                        <br><br>
+                        <span class="accordion">I remember vividly when Baba Vanga said that time is one - there is no past, present or future.</span>
+                        <div class="panel">
+                            <div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/426595039?autoplay=0&loop=1&title=0&byline=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="extraDivProf">
+                        <h2 style="color:black;">ELEMENT</h2>
+                        <br><br>
+                        "True Apostolic Early Christianity has its fundament in the lands of Bulgaria - its name is Orphism. Which in the first century of the new era unites the Thracian tribes with the fate of Orpheus, who was long ago admitted as a God. What is important here is: monogenesis, one God, we are all Godly children, we all come from the same place and we have a Godly nature, as such we have the right of direct contact with our Creator. Our Godly essence - the soul is arrested in the material body which has to be released through purification and special rituals. What kind of rituals - musical. The music is an expression of the Godly rhythm. Especialy ⅞ - the vibrations of the higher universe. This is the one thing that purifies  the soul. Instead of slaughtering animals and shedding blood, we can sing. In theology they teach the transition of rituals from one culture to another and how it changes its meaning, but in the whole world there is this missing concept of replacing the sacrifice with a song. Because the song synchronises you with the entire celestial world, and the purpose of all that is the hermetic principle - whatever is above and this is also below. Orpheus introduces that knowledge, this is what the Thracians knew and disseminated. When Christianity came, there was no ideological reason not to accept Jesus аs Hypostasis of Orpheus." 
+                        <br>
+                        prof. Damijan Pophristov
+                    </div>
+                    <div class="viviDivProf">
+                        In 2014, short before my Autonome Beeldende Kunst graduation I found the stilistic and mesmerizing charm of Kukeri. It was evoked by my urge to trace the roots of my ancestors, and I started to study its fundamentals and origins when I found that this Orphistic ritual embodies the oldest preserved kult of god Zagrej (Dionise). 
+                        <br><br>
+                        <h4>In 2014 I wrote</h4>
+                        " In my final graduation project, I dedicated my research on the importance of cultural values and their impact throughout time. Research in which essential matters are seen through the prism of history, philosophy, traditional knowledge, even indigenous values, where the main guideline is on the development of the collective mind, and against classism.
+                        <br><br>The area where I am coming from is a region, which constantly gives birth to stories - so intense that one lifetime is not enough to grasp; in which memories are sometimes terrifying, sometimes manipulated or deliberately forgotten. Therefore I focus my attention on the essence of rituals, symbols, and ancient understandings which have been judged, rejected and forgotten by the time. The Kukeri ritual in the lands of Bulgaria dates from the time of its ancestors - the Thracians. The celebration was dedicated to the Thracian god of mirth Dionysus in order to celebrate the beginning of the new year. Kukeri recreates the vital relationship between nature and man. Kukeri(mummers) are dressed with scary masks, with hanging bells, carrying swords or sticks. They dance in the obedience of nature to scare away the barren winter and the evil spirits. Then spring is welcomed with an entrenched fertile harvest year. 
+                        <br><br>
+                        Kukeri revived despite its forcible neglect and prohibition during Ottoman invasion and later from Communism.
+                        <br><br>
+                        The seemingly mythological scene is set in a daily context where the relationship of contemporary society, political climate, and religious sets narrates its seemingly absurd nature.
+                        <br><br>
+                        Tsar is a directed performance impersonating old value systems in a critical dispute with the sober present reality. The multidimensionality of the performance goes through the notions of romantic, philosophical, critical, ominous but also comic.
+                        <br><br>
+                        Tsar itself marks the name of the main character of the performance. The project is a directed performance – a complex composition involving in tight relation both technical and conceptual aspects."
+                    </div>
+                    <div class="ninoDivProf">
+                        <div class="ninoImgDiv">
+                            <img class="avNino" src="images/nino.png" >
+                        </div>
+                        In 2018 with my moral support, Vanina considered again the research from 2014 as the beginning of the new one. This gave birth to We, Ourselves and Us - a family of Kukeri creatures. 
+                        <br> I received new friends - 
+                        <br>Totko: Born in 2018 and 
+                        <br>Bendida: born in 2019.
+                    </div>
+                    <div class="viviDivProf">
+                        <div style="display: table;margin-left: -25%;margin-right: -25%">
+                            <div style="position: relative;display: table-cell;width:30%;">
+                                <img src="images/totko_smooth.png" style="width:100%;padding: 18px">
+                                <h3>Totko - Control Freak</h3>
+                                Totko is the educator, but also appears to be the leader. He takes the initiative and organizes everything around him with ease. He likes to control the situation, and often perfectionism is what drives him to the accomplishment of things. Everybody follows him, even though he’s not always right. But he has a good heart, and a friendly nature.
+                            </div>
+                            <div style="position: relative;display: table-cell;width:30%;padding: 18px">
+                                <img src="images/nino.png" style="width:100%;">
+                                <h3>Nino - Nino is bored, since he is not Tsar anymore</h3>
+                                Nino is the oldest. He is respected for his wisdom, but often you can find him entertaining himself with strange things.. For example trying to eat a cat while petting it. Waiting to scare the postman through the postbox hole. Watching the neighbour’s TV outside their window, while eating snacks together with the package. He’s loveable and you can pet him. But don’t overdo, because he would like to eat you.
+                            </div>
+                            <div style="position: relative;display: table-cell;width:30%; padding: 18px">
+                                <img src="images/iara.png" style="width:85%;">
+                                <h3>Bendida - The fast paws</h3>
+                                Bendida is named after the Thracian mother goddess Bendida (in Greek mythology represented by Artemis). Bendida possesses magnifying radians, she attracts so easily friends, everybody adores her company. She is always surrounded by the love of all little cute beasts, birds on her shoulder, butterflies on her eyebrow. She protects them, and treats them with much love. Bendida has the supernatural gift to always be there when somebody is in trouble, to help out.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="viviDivProf">
+                        In my recent research Kukeri has changed its essence and grew from a visual culturally intertwined image/topic into a space of inner expression. Kukeri in the face of We, Ourselves and Us gave me the liberty of exploring my freedoms, without the fear of being exposed. It gave me the inner protesting or loving voice. And you cannot say that this is my comfort zone! This is the 'place' where I feel free from restrictions, everything is allowed while being a Kuker, and I push it even further. For me there is this potential, importantly enhanced current condition that can and does shift, as a natural force, its character. There is not a constant condition in which we are set to live, we have luckily many. I underline this moment's conditions, and each specific Kuker brings its character forward to it.
+                    </div>
+                    
+                    
+                    <div class="viviDivProf">
+                        In Frank Mohr I have grown towards ultimate appreciation of distortion. As I already had many sympathies for broken or malfunctioning objects or events, or society.  
+                        <br><br>In relation to technology I started to perceive We, Ourselves and Us as such: as a broken, unwanted, mischievous guest, wandering around or interfering with everything important as possible. 
+                        <br><br>
+                        We, Ourselves and Us* often becomes a band of experimental musicians, poets and artists themself. During the last two years they have gained a strong identity that revealed a multitude of talents. 
+                        <br><br>
+                        A big part of WoU is my method of creating and/or adopting new instruments, defected objects, impulsive/irrational actions, dematerialization and materialization of odds.
+                    </div>
+                    <div class="extraDivProf">
+                        <h3>WoU Manifesto:</h3><br>
+                        'we, ourselves and us', lays the foundation for a new expressive space. The participants in WOU are not part of a fixed group. They remain always anonymous and they are part of the NOW moment. They are not linked in any idealistic or religious unity! They are linked only by the desire to interact now, through their senses, sound, image, movement. The participants follow each other's expression, tone, motion and react to each other's vibrations as one fluent organism where order and chaos balance equally on the scales. There is no leader, because in each moment (depending on the inner need of expression) everybody can take the lead. 
+                        <br><br>***
+                        <h3>WoU's Performance:</h3>
+                            <br>- Performance as ritual of initiation
+                            <br>- In WoU's performances all elements are inseparable, yet each element of it can be a single work
+                            <br>- Performance revealing a reverse point in thinking. Critical!
+                            <br>- Performance can be a way to directly share sources of inspiration
+                            <br>- Performance without fixed beginning and end
+                            <br>- Performance shifting dramatically its sense 
+                            <br>- Performance where performers have the power to influence according to their temporary mood/condition
+                            <br>- Performance of self initiation
+                            <br>- WoU's performances change constantly its conditions - concert, music, noise, live coding, living space, science lab, domestic actions, social abstraction, poetry, reading, dancing, rolling...
+                            <br>- Performance = Non directed performance
+                            <br><br>***
+                            <h3>WoU's extended conditions:</h3>
+                            <br>Restricted turns into a condition of exploring the unlimitlessness and freedoms to be. 
+                            <br><br>
+                            Conventional turns into a condition of experimental infinitude where we break down everything but our curiosity. 
+                            <br><br>
+                            Traditional becomes a terminal for new breakthrough ideas that do not need to withstand time. 
+                            <br><br>***
+                            <h3>Onthologie of We Ourselves and Us</h3>
+                            are the ontological questions themselves, and we tend to ask them all, only while performing.
+                            <br><br>- What can be said to exist?
+                            <br>- What is a thing?
+                            <br>- Into what categories, if any, can we sort existing things?
+                            <br>- What are the meanings of being?
+                            <br>- What are the various modes of being of entities?
+                            <br><br>***
+                            <h3>The way we work</h3> is against any restrictions. In WoU everything is allowed - play with time, music, visuals, to achieve new forms of expression and create new perception. We don’t want to have a script, so we can make/experience the work right at the moment as an artifact - in its uniqueness - not planned - not directed. It's a necessary course for us. Improvisation as a thought/action without any guidance, action reaction action reaction action reaction action reaction action reaction action reaction action reaction action reaction action reaction action reaction action reaction action reaction action reaction action reaction action reaction action reaction action reaction action reaction action reaction action reaction action reaction action reaction action reaction action reaction....
+                            <br><br>
+                            "I see free improvisation as a moment in space and time where the participating musicians create a kind of *tabula rasa* for the brain; impeding thoughts and processes are (or should be) banned, so that every creative spark (or *improvisational impulse*) gets the chance to be seen and acted upon. If there's too much distracting neural fireworks, the one that's relevant for the improvisation situation might not be seen.
+                            <br><br>
+                            Reminiscent to a *cloud chamber*, where passing energetic particles are made visible by setting up a sealed environment with supersaturated vapor {#54729}, the improviser catches and materializes improvisational impulses into actions.
+                            <br><br>
+                            In a way many 'doors of perception' are opened up; actions and reactions are encouraged to happen and to be sensed, which demands a special kind of attention. Not only auditory content and cues are important, but the whole presence of the performer. Improvisation is embodied creation, engaging multi-dimensional communication."
+                            <br>
+                            <span style="display: block;text-align:right">Jan Klug</span>
+                    </div>
+                    <div class="viviDivProf">
+                        I always paid special attention to the sound in my visual compositions or performances. In Frank Mohr, I was encouraged from my tutors to develop that audiovisual approach in a more conscious way.. I started to involve more musical elements in my performance. I conducted many experiments related to sound - Sound improvisation, Sound and motion, Noise, Text and sound, Spoken words, Singing, making and playing different (unconventional) instruments, Voice change, Live coding (phasers), Sonification etc.
+                    </div>
+                    <div class="ninoDivProf">
+                        <div class="ninoImgDiv">
+                            <img class="avNino" src="images/nino.png">
+                        </div>
+                        She was a stigmatized musical invalid. It was a silly childhood memory that did not let her develop her musical pashion further. Probably this is the time to continue on that path. All though the continuation would never be the same. Gradually, during the last couple of months she gained more experience while studying and experimenting with Ableton Life. Now it feels like Ableton is for life - this program became an extension of her emotional expression. 
+                    </div>
+                    <div class="viviDivProf">
+                        <h3>Technopaganism</h3>
+                        <br><br>
+                        I have always been interested in exploring new modes of expression, getting away from traditional means of the content and/or the process of creation. In my recent project the main importance is falling on the interactive element throughout ancient rituals in conversation with technology(new media art) - whether installation, performance or any kind of audiovisual work- and the interactions/interconnections created as a result of that. Therefore, leaving a space for creative play and exploration of the senses comes naturally back to me as a feedback - feedback, which I consider very important for the development of my future artistic approach. Personally for me, technology is augmenting my own creativity, but I am also very interested in observing it as a subject matter - in its social, cultural and political or philosophical implications. Art in relation to Technology helps me reach the essential points in the dialogue between human and machine. As for example when it comes to the topic of Machine learning, most people have to consider their own implications/input on that new and still very vulnerable technology. How we perceive and act upon that matter - that defines its fundamentals, that defines as well our future. I, as many of my contemporaries, perceive the human-machine dialogue as the contemporary of human-religion one, and I would like to consider further studies in this area. 
+                        <br><br>
+                        <span style="display:block;text-align: center">***</span>
+                    </div>
+                    <div class="extraDivProf">
+                        <h3>GLITCH</h3>
+                        <br><br>
+                        "The 'debuggers’ of the digital realm, the technicians and engineers, are tasked with controlling the erratic reactions and behaviors of files, hardwares and softwares. Complex compression algorithms developed for mobile phones, DVDs and MP3s for example, are designed to minimize the amount of artifacts a device will show at the surface of its interface, to make the medium seem as transparent as possible. In the culture of glitch art, technicians and engineers are more like ‘re-buggers’; they engage themselves with an almost opposite practice, prompting and amplifying glitch artifacts on purpose and even writing softwares or building blatantly non-standard machines with the intent to spawn more new artifacts for the user/viewer’s development of a rich Glitchspeak vocabulary."
+                        <br>
+                        <span style="display: block;text-align:right">Rosa Menkman</span>
+                    </div>
+                    <div class="viviDivProf">
+                        You cannot start liking glitch just like that. This is something that goes through your life in some form, and when it finally arrives it is a love from first glimpse. I cannot explain my relation to Glitch, this is something very personal. It is a condition. 
+                        <br><br>For me Glitch turned to be another dimension, of space, of seeing, of working and being. It is an encounter, detonation. It is meditation. 
+                        <br><br>It is like the clouds, you see so many familiar figures, it is like the weather in the mountain - beautiful in its unpredictability; it is hypnosis that extracts from you many memories; it is a walk on a thin ice - exciting and dangerous; it is the dimentional corridor of a black whole where time and space does not exist but is about to get born; it is the neural connections that stopped working and started to make art. 
+                        <br><br><br><br>
+                        My recent research surfs into the waves of synesthesia/digital synesthesia - where a sensory perception or its conceptual notion instills in the mind at the same time another notion of a sense that has not been stimulated. Through materialization of odds and errors - depicted by a performative embodiment of animal spirits(Kukeri); and dematerialization of social conventions and acceptances depicted by the malfunction of the social information stream – glitch, the elaborate dialogue between both elements give space for playful interaction while embracing the uncanny.
+                    </div>
+                    
+                    <div class="bendidaDivProf">
+                        <div class="bendidaImgDiv">
+                            <img class="avBendida" src="images/iara.png">
+                        </div>
+                        She is a romantic philomath - Her studies go in so many directions that the knowledge presented is a beautiful chaos in its order.
+                    </div>
+                    
+                    
+                    <div class="viviDiv" style="margin-top: 150px; text-align: center;">
+                        <h3>BAD or Beyond Art Disciplines</h3>
+                        <br><br>
+                        Bad and the topic of the Third ...or New Moon - New Thoughts
+                        <br><br>
+                        Questions we have discussed with my group and some of my formulated conclusions and reactions on them:
+                        <br><br>
+                        What we are and what we can become?
+                        <br><br>
+                        What would be without us?  
+                        <br><br>
+                        What it could be, if artists are respected, facilitated, paid?
+                        <br><br>
+                        <br><br>
+                        "HI"
+                        <br><br>
+                        Hi I am an artist - give me a blank page! 
+                        
+                        <br><br>Hi I am an artist.
+                        What we are and what we can become. Hmmmmm I'm good at everything that I want.
+                        <br><br>
+                        I am a corporate director.
+                        
+                        <br><br>
+                        I am a strip dancer.
+                        <br><br>
+                        I am a window cleaner, I am a dishwasher, I am a truck driver, I am a Jet pilot, I am a Spacelaunch operator, I am a fireworks coock, I am a Scrum master, the inventor, the thinker, the Mad Man. 
+                        <br><br>
+                        Give me that white canva over here. I will show you the power of the artist. 
+                        <br><br>
+                        I am there where I am needed, I am there where my righteousness is needed. I am here to acknowledge and implement the innermost.
+                        <br><br>
+                        And you know what, there is nothing more powerful than being secure in our insecurity. 
+                        <br><br>
+                        To be strong in our vulnerability is our quality. To question and experiment with fundamental knowledge gives birth to new knowledge or rebirth of knowledge. 
+                        <br><br>
+                        ...Only give me that white cube. 
+                        <br><br>
+                        What would be without us you'll ask. Well true, we are easily marginalized from the ones with personal agendas, writing rapidly the history of the fall. I guess there will be just white canvas all over, primal instincts, a baby boom cannibalistic society with no future. 
+                        <br><br>
+                        Last question. What it could be if artists are respected ≈ (ALMOST EQUAL TO ) paid ≈ facilitated. I guess it would be a miracle for most. We would have so much Michelangelos around... 
+                        <br><br>
+                        <br><br>
+                        <br><br>
+                    </div>
+                    <div class="viviDiv" style="text-align:center;">
+                        
+                    
+                        <h3>BAD MAnifest, O!</h3>
+                        <br><br>
+                        De liberatus
+                        <br><br>
+                        2o2o
+                        <br><br>
+                        In order to obtain ultimate artistic liberty, we are deliberately rejecting restrictions; we deliberately rip out every act of corruption, populism or autocracy; we deliberately let go of any traditional means that blocks our free expression, our curiosity and desires to learn, create or actively participate; we deliberately disengage with historical fixations, history having just one point of view or pseudohistory; we deliberately part away from individuals or groups led by ambition, jealousy, greed, envy, lies, disloyalty, backbiting…
+                        <br><br>
+                        We are BAD and we engage in directly lived moments where interconnectedness unites our time, being and MAking together. 
+                        <br><br>
+                        The space that we meet together is named MA, this is our spacetime - the pause in time and the void in space altogether.
+                        <br><br>
+                        "Length of time depends upon our ideas.
+                        <br><br>
+                        Size of space hangs upon our sentiments.
+                        <br><br>
+                        For one whose mind is free from care,
+                        
+                        <br><br>A day will outlast the millennium.
+                        <br><br>
+                        For one whose heart is large,
+                        <br><br>
+                        A tiny room is as the space between heaven and earth" 
+                        <br><br>
+                        
+                    </div>
+                    <div class="breakDiv" style="height: 300px"></div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <audio id="home" src="images/audio/Creatures having dinner.mp3" volume="0.3" loop=""></audio>
+    <audio id="prof" src="images/audio/Auch_web.mp3" volume="0.3" loop=""></audio>
+    <audio id="pers" src="images/audio/31-01-2020.mp3" volume="0.3" loop=""></audio>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+          $('[data-toggle="popover"]').popover({
+            html: true,
+            trigger: "hover",
+            content: function () { return '<img src="' + $(this).data('img') + '" width="200px" />'; }
+
+          });
+});
+    
+
+    var acc = document.getElementsByClassName("accordion");
+
+    for(let i = 0; i < acc.length; i++){
+        
+        acc[i].addEventListener("click", function(){
+            this.classList.toggle("active");
+            console.log(this.classList);
+            var panel = this.nextElementSibling;
+            
+            panel.addEventListener("click", function(){
+                if (panel.style.maxHeight){
+                    panel.style.maxHeight = null;
+                    panel.style.display = "none";
+                }
+            });
+            if (panel.style.maxHeight){
+                panel.style.maxHeight = null;
+                panel.style.display = "none";
+            } else {
+                panel.style.display = "block";
+                panel.style.maxHeight = panel.scrollHeight + 18 + "px";
+            }
+        });
+    }
+    //Space mp3
+    
+    function playSpace(){
+        var space = document.getElementById('space');
+    var audio = document.getElementsByTagName('audio')[0];
+        if ( audio.paused){
+            audio.play();
+        } else {
+            audio.pause();
+        }
+    }
+        
+    
+    
+    var video = document.getElementsByTagName('video')[0];
+    // Kink video
+    var kink = document.getElementById('kink');
+    if ( video.paused ) {
+        video.play();
+    } else {
+        video.pause();
+    }
+
+    var videoB = document.getElementsByTagName('video')[1];
+    // basement video
+    var B = document.getElementById('basement');
+    if ( video.paused ) {
+        videoB.play();
+    } else {
+        videoB.pause();
+    }
+    
+</script>
+    </body>

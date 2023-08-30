@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Vanina Tsvetkova</title>
+	<meta charset="utf-8" />
+	<link rel="icon" href="favicon.ico">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<meta name="viewport" content = "width=device-width, initial-scale=1.0">
+	{% block head %}
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/addons/p5.sound.min.js"></script>
+	<script type="text/javascript" src="{{ url_for('static', filename=sketch) }}"></script>
+	{% endblock %}
+	<style>
+	html, body {
+	  height: 100%;
+	}
+
+	body {
+	  margin: 0;
+	  display: flex;
+	}
+		#totkoL {
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+}
+#totkoR {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+}
+img:hover {
+	height: 150px;
+}
+img{
+	height: 80px;
+}
+	</style>
+</head>
+<body>
+{% block body %}
+{% endblock %}
+
+{% if audio %}
+	<audio autoplay loop>
+		<source src="{{ url_for('static', filename=audio) }}" type="audio/mpeg">
+	</audio>
+{% endif %}
+<footer>
+	{% for footer in footers %}
+		<a id="{{ footer.id }}" href="{{ url_for(footer.href) }}"><img src="{{ url_for('static', filename=footer.side) }}" ></a>
+	{% endfor %}
+</footer>
+</body>
+
+</html>
