@@ -21,6 +21,7 @@ function setup() {
 	canvas.position(0,0);
 	canvas.style('display', 'block');
 	canvas.style('z-index', '-1');
+	select('body').elt.style.backgroundColor = 'black';
 //	sound.loop();
 //	sound.amp(0.3);
 	

@@ -8,9 +8,12 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<meta name="viewport" content = "width=device-width, initial-scale=1.0">
 	{% block head %}
+	{% if sketch %}
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.js"></script>
-		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/addons/p5.sound.min.js"></script>
+<!--		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/addons/p5.sound.min.js"></script>-->
+		<script type="text/javascript" src="{{ url_for('static', filename='js/p5.sound.js') }}"></script>
 	<script type="text/javascript" src="{{ url_for('static', filename=sketch) }}"></script>
+	{% endif %}
 	{% endblock %}
 	<style>
 	html, body {
@@ -20,6 +23,7 @@
 	body {
 	  margin: 0;
 	  display: flex;
+	  background-color: black;
 	}
 		#totkoL {
   position: fixed;
@@ -37,12 +41,30 @@ img:hover {
 img{
 	height: 80px;
 }
+video{
+	position: absolute;
+	height: 56.25vw;
+	left: 50%;
+	min-height: 100%;
+	min-width: 100%;
+	transform: translate(-50%, -50%);
+	top: 50%;
+	width: 177.77777778vh;
+	z-index: -1;
+	background-color: black;
+}
 	</style>
 </head>
 <body>
 {% block body %}
 {% endblock %}
 
+{% if video %}
+<video autoplay loop>
+	<source src="{{ url_for( 'static', filename=video) }}" type="video/mp4">
+</video>
+
+{% endif %}
 {% if audio %}
 	<audio autoplay loop>
 		<source src="{{ url_for('static', filename=audio) }}" type="audio/mpeg">

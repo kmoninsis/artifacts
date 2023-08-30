@@ -2,29 +2,35 @@ let canvas;
 let totko,
 	sound1;
 let IsPlaying = false;
+let R, centerW, centerH;
 
 function preload(){
-	totko = createVideo('images/totkoGlitchEarth.mp4', afterLoad);	
-	sound1 = loadSound('images/audio/Minions.mp3', afterLoad);
+	totko = createVideo('static/videos/totkoGlitchEarth.mp4', afterLoad);
+	sound1 = loadSound('static/audio/Minions.mp3', afterLoad, errorLoad, progressLoad);
 	
 }
+function errorLoad(e){
+print("Item "+e+"has error");
+}
+
+function progressLoad(e){
+print("Item "+e+"has progress");
+}
+
 function afterLoad(){
 print("Item has finished loading");
-	totko.size(windowWidth,AUTO);
-	totko.volume(0);
-	sound1.setVolume(0);
+//	if(item == 'video'){
+//		totko.size(windowWidth,AUTO);
+//		totko.volume(0);
+//	}
+//	else { sound1.setVolume(0); }
 }
 function windowResized() {
-	resizeCanvas(windowWidth, windowHeight);
-	totko.size(windowWidth,AUTO);
+//	resizeCanvas(windowWidth, windowHeight);
+//	totko.size(windowWidth,AUTO);
 }
 
 function setup (){
-	canvas = createCanvas(windowWidth,windowHeight);
-	canvas.position(0,0);
-	canvas.style('display', 'block');
-	canvas.style('z-index', '-1');
-
 	totko.loop();
 	// totko.hide();
 	sound1.loop();
@@ -33,10 +39,18 @@ function setup (){
 
 
 function draw (){
-	let R = totko.size().height/4;
-	let centerW = totko.size().width/2;
-	let centerH = totko.size().height/2;
-
+//		print(windowWidth*0.5625);
+//Math.floor(windowWidth*0.5625)
+	if(windowHeight == totko.size().height){
+		print("video height is same as windowHeight");
+		R = windowHeight/4;
+	} else {
+		print("video width is same as windowWidth");
+		R = windowWidth/6;
+	}
+	centerW = windowWidth/2;
+	centerH = windowHeight/2;
+//	print(totko.size().width,windowWidth, totko.size().height, windowHeight);
 	if(sq(mouseX - centerW) + sq(mouseY - centerH) <= sq(R)){
 	variableSpeed(mouseX, mouseY, pmouseX, pmouseY, false);
 	} else {

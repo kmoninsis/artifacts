@@ -11,48 +11,50 @@ let mainDiv,
 	let currVid,
 		currGif,
 		showVid;
-let urls = ['images/ponyhof/1Okalinka01.mp4',
-			'images/ponyhof/2bike1.mp4',
-			'images/ponyhof/3guitar.mp4',
-			'images/ponyhof/4Okalinka02.mp4',
-			'images/ponyhof/5OLDhike.mp4',
-			'images/ponyhof/6behindthree.mp4',
-			'images/ponyhof/7Okalinka03.mp4',
-			'images/ponyhof/8bike2.mp4',
-			'images/ponyhof/9Swinging.mp4',
-			'images/ponyhof/10Okalinka04.mp4',
-			'images/ponyhof/11chelo1.mp4',
-			'images/ponyhof/12Car.mp4',
-			'images/ponyhof/13Okalinka05.mp4',
-			'images/ponyhof/14bike3.mp4',
-			'images/ponyhof/15OLDhidingbehindthree.mp4',
-			'images/ponyhof/16Okalinka06.mp4',
-			'images/ponyhof/17OLDhike2.mp4',					
-			'images/ponyhof/18Party.mp4'];
-let gifs = ['images/placeholder0.gif',
-			'images/placeholder1.gif',
-			'images/placeholder2.gif',
-			'images/placeholder3.gif',
-			'images/placeholder4.gif',
-			'images/placeholder5.gif',
-			'images/placeholder6.gif',
-			'images/placeholder7.gif',
-			'images/placeholder8.gif',
-			'images/placeholder9.gif',
-			'images/placeholder10.gif',
-			'images/placeholder11.gif',
-			'images/placeholder12.gif',
-			'images/placeholder13.gif',
-			'images/placeholder14.gif',
-			'images/placeholder15.gif',
-			'images/placeholder16.gif',
-			'images/placeholder17.gif'];
+let urls = ['static/videos/ponyhof/1Okalinka01.mp4',
+			'static/videos/ponyhof/2bike1.mp4',
+			'static/videos/ponyhof/3guitar.mp4',
+			'static/videos/ponyhof/4Okalinka02.mp4',
+			'static/videos/ponyhof/5OLDhike.mp4',
+			'static/videos/ponyhof/6behindthree.mp4',
+			'static/videos/ponyhof/7Okalinka03.mp4',
+			'static/videos/ponyhof/8bike2.mp4',
+			'static/videos/ponyhof/9Swinging.mp4',
+			'static/videos/ponyhof/10Okalinka04.mp4',
+			'static/videos/ponyhof/11chelo1.mp4',
+			'static/videos/ponyhof/12Car.mp4',
+			'static/videos/ponyhof/13Okalinka05.mp4',
+			'static/videos/ponyhof/14bike3.mp4',
+			'static/videos/ponyhof/15OLDhidingbehindthree.mp4',
+			'static/videos/ponyhof/16Okalinka06.mp4',
+			'static/videos/ponyhof/17OLDhike2.mp4',
+			'static/videos/ponyhof/18Party.mp4'];
+let gifs = ['static/images/placeholder0.gif',
+			'static/images/placeholder1.gif',
+			'static/images/placeholder2.gif',
+			'static/images/placeholder3.gif',
+			'static/images/placeholder4.gif',
+			'static/images/placeholder5.gif',
+			'static/images/placeholder6.gif',
+			'static/images/placeholder7.gif',
+			'static/images/placeholder8.gif',
+			'static/images/placeholder9.gif',
+			'static/images/placeholder10.gif',
+			'static/images/placeholder11.gif',
+			'static/images/placeholder12.gif',
+			'static/images/placeholder13.gif',
+			'static/images/placeholder14.gif',
+			'static/images/placeholder15.gif',
+			'static/images/placeholder16.gif',
+			'static/images/placeholder17.gif'];
 function preload(){
 	
 					
 	for(let i =  0; i < gifs.length; i++){
-		vids[i] = createVideo(urls[i], afterLoadVid);
 		placeholder[i] = createImg(gifs[i], 'placeholder', 'anonymous', afterLoadImg);
+	}
+	for(let i =  0; i < gifs.length; i++){
+		vids[i] = createVideo(urls[i], afterLoadVid);
 	}
 
 }
@@ -73,17 +75,28 @@ function setup() {
 
 
 	//Create the main and Gallery Divs
-	 mainDiv = createDiv();
-	 mainDiv.class('mainDiv');
-	 buffer = createDiv();
-	 buffer.class('buffer');
-	 galleryDiv = createDiv();
-	 galleryDiv.class('galleryDiv');
-	 mainDiv.style('display','none');
+	buffer = createDiv();
+	buffer.class('buffer');
+
+	galleryDiv = createDiv();
+	galleryDiv.class('galleryDiv');
+	galleryDiv.style('z-index','10');
+	galleryDiv.style('position','absolute');
+	galleryDiv.style('overflow','hidden');
+	galleryDiv.style('width','100%');
+	galleryDiv.style('top','50%');
+	galleryDiv.style('height','20vh');
+	galleryDiv.style('border','none');
+	galleryDiv.style('margin-top','-10vh');
+
+	mainDiv = createDiv();
+	mainDiv.class('mainDiv');
+	mainDiv.style('display','none');
 	mainDiv.style('position','static');
 	mainDiv.style('margin','auto');
+	mainDiv.style('height','80%');
+	mainDiv.style('border','none');
 	mainDiv.style('z-index','9');
-	galleryDiv.style('z-index','-1');
 
 	for(x in vids){				
 		vids[x].hide();

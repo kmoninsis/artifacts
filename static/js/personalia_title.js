@@ -23,30 +23,30 @@ let profShow = false;
 let imgs = [];
 let maxH = [];
 let soundHome, soundProf, soundPers;
-let urls = ['images/ear03sm.png',
-			'images/ear10sm.png', 
-			'images/ear11sm.png',
-			'images/tracian.png',
-			'images/tracian01.png',
-			'images/tromba.png',
-			'images/obj01sm.png',
-			'images/obj02sm.png',			
-			'images/obj04sm.png',
-			'images/obj05sm.png',
-			'images/obj07sm.png',
-			'images/obj08sm.png',
-			'images/obj09sm.png',
-			'images/obj10sm.png',
-			'images/obj11sm.png',
-			'images/obj12.png',
-			'images/obj13sm.png',
-			'images/obj14sm.png',
-			'images/obj15sm.png',
-			'images/obj16sm.png',
-			'images/obj17sm.png',
-			'images/obj18sm.png',
-			'images/cracklebox.png',
-			'images/anatomy03sm.png'];
+let urls = ['static/images/ear03sm.png',
+			'static/images/ear10sm.png', 
+			'static/images/ear11sm.png',
+			'static/images/tracian.png',
+			'static/images/tracian01.png',
+			'static/images/tromba.png',
+			'static/images/obj01sm.png',
+			'static/images/obj02sm.png',			
+			'static/images/obj04sm.png',
+			'static/images/obj05sm.png',
+			'static/images/obj07sm.png',
+			'static/images/obj08sm.png',
+			'static/images/obj09sm.png',
+			'static/images/obj10sm.png',
+			'static/images/obj11sm.png',
+			'static/images/obj12.png',
+			'static/images/obj13sm.png',
+			'static/images/obj14sm.png',
+			'static/images/obj15sm.png',
+			'static/images/obj16sm.png',
+			'static/images/obj17sm.png',
+			'static/images/obj18sm.png',
+			'static/images/cracklebox.png',
+			'static/images/anatomy03sm.png'];
 
 
 function windowResized(){
@@ -59,7 +59,8 @@ function setup(){
 	canvas.position(0,0);
 	canvas.style('z-index', '-1');
 
-	let space = select('#space');
+	let space = select('.space');
+	print(space);
 	space.style('display', 'inline-block');
 	let persDiv = select('.personalia');
 	let profDiv = select('.professionalia');

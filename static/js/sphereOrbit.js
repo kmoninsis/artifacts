@@ -4,8 +4,8 @@ let theta = 0;
 let IsPlaying = false;
 
 function preload(){
-  orbit = createVideo('images/orbit.mp4', afterLoad);
-  sound1 = loadSound('images/orbit.mp3', afterLoad);
+  orbit = createVideo('static/videos/orbit.mp4', afterLoad);
+  sound1 = loadSound('static/audio/orbit.mp3', afterLoad);
   orbit.hide();
 }
 

@@ -63,7 +63,7 @@ function setup(){
 function draw(){
 
 	for(x in dancingChars){
-		print(test[x]);
+//		print(test[x]);
 			if(test[x] == 1){
 				dancingChars[x].brownian(5);
 				

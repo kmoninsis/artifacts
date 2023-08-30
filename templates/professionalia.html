@@ -10,7 +10,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/addons/p5.sound.min.js"></script>
-    <script type="text/javascript" src="sketches/personalia_title.js"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/personalia_title.js') }}"></script>
     <script src="https://player.vimeo.com/api/player.js"></script>
 
 <style type="text/css">
@@ -29,7 +29,7 @@ body {
 }
 @font-face {
 font-family: "roboto";
-src: url("images/fonts/robotomono-regular.ttf");
+src: url("{{ url_for('static', filename='fonts/robotomono-regular.ttf') }}");
 
 }
 
@@ -87,7 +87,6 @@ src: url("images/fonts/robotomono-regular.ttf");
     width: 100%;
     height: auto;
     display: none;
-
 }
 
 .fmiDiv{
@@ -235,10 +234,10 @@ src: url("images/fonts/robotomono-regular.ttf");
     font-family: monospace;
 }
 #title1 span{
-    cursor: url('images/nino-cursor.png'), auto;
+    cursor: url("{{ url_for('static', filename='images/nino-cursor.png') }}"), auto;
 }
 #title2 span{
-    cursor: url('images/nino-cursor.png'), auto;
+    cursor: url("{{ url_for('static', filename='images/nino-cursor.png') }}"), auto;
 }
 #personalia{
     display: none;
@@ -353,7 +352,7 @@ src: url("images/fonts/robotomono-regular.ttf");
     transition: max-height 0.2s ease-out;
 }
 #space{
-    cursor: url('images/nino-cursor.png'), auto;
+    cursor: url("{{ url_for('static', filename='images/nino-cursor.png') }}"), auto;
 }
 .info{
     text-decoration: none;
@@ -382,8 +381,8 @@ src: url("images/fonts/robotomono-regular.ttf");
 <body>
     <div class="main">
         
-        <a href="about.html"><img class="info" id="about" src="images/tromba.png" ></a>
-        <a  href="praise.html"><img class="info" id="praise" src="images/obj08sm.png" ></a>
+        <a href="about.html"><img class="info" id="about" src="{{ url_for('static', filename='images/tromba.png') }}" ></a>
+        <a  href="praise.html"><img class="info" id="praise" src="{{ url_for('static', filename='images/obj08sm.png') }}" ></a>
         <div class="fmiDiv" >
                 MA MADtech •                
                 Frank Mohr Institute • Minerva Art Academy •
@@ -398,7 +397,7 @@ src: url("images/fonts/robotomono-regular.ttf");
                 <div id="title1">
                     <span id="personalia">PERSONALIA</span>             
                 </div>  
-                <div id="space" style="width:100px; display: inline-block;"></div>          
+                <div id="space" style="width:100px; display: inline-block;"></div>
                 <div id="title2">
                     <span id="professionalia">PROFESSIONALIA</span>
                 </div>
@@ -410,12 +409,15 @@ src: url("images/fonts/robotomono-regular.ttf");
 
 
             </div>
-                
+                {% for img in images %}
+                <img class="imgs" alt="{{ img }}" src="{{ url_for('static', filename=img) }}" preload="none" />
+
+                {% endfor %}
             <div class="personalia">
                     
             
                 <div class="breakDiv" style="height:auto; min-height:900px;display: flex;justify-content: center; align-items: center;position: relative;padding-top: 250px;">
-                    <img style="display:block;height: 800px;position: relative" src="images/anatomy01.png">
+                    <img style="display:block;height: 800px;position: relative" src="{{ url_for('static', filename='images/anatomy01.png') }}">
                     
                 </div>
                     <br><br>
@@ -425,7 +427,7 @@ src: url("images/fonts/robotomono-regular.ttf");
                     <h2 class="title" style="font-size:15px">With the exceptional support of Nino, Totko and Bendida.
                     </h2>
                 <div class="totkoDiv">
-                    <div class="totkoImgDiv"><img class="avTotko" src="images/totko_smooth.png" ></div>
+                    <div class="totkoImgDiv"><img class="avTotko" src="{{ url_for('static', filename='images/totko_smooth.png') }}" ></div>
                     
                     Dear reader. My name is Totko and I am your guide through the multiverse of my creator - miss Tsvetkova. Together with Nino and Bendida we are going through some personal stories in an attempt to get to know her and what she stands for. 
                     <br><br>
@@ -438,7 +440,7 @@ src: url("images/fonts/robotomono-regular.ttf");
                 </div>
                             
                 <div class="ninoDiv" style="color:black;">
-                    <div class="viviImgDiv"><img class="avVivi" src="images/vivi_head.png" ></div>
+                    <div class="viviImgDiv"><img class="avVivi" src="{{ url_for('static', filename='images/vivi_head.png') }}" ></div>
                     <h3>Mr. Coco</h3>
                     
                     According to the official item, <span class="accordion">Mr.Coco</span> was born in 2019 from a simple desire for survival. His father was a wild forest creature - unknown for humanity, his mother - a simple market woman, that was yet to discover how much there is to learn about such unconventional relationships.
@@ -468,10 +470,10 @@ src: url("images/fonts/robotomono-regular.ttf");
                     <br>The good news is that after April 11, Mercury is already moving to Aries and these concerns will gradually diminish and disappear, and the information will become much more accurate and reliable.}...
                 </div>
                 <div class="breakDiv" ></div>   
-                <div class="viviDiv"><img class="avVivi" src="images/vivi_head.png" >
+                <div class="viviDiv"><img class="avVivi" src="{{ url_for('static', filename='images/vivi_head.png') }}" >
                      I am back writing my thesis, but a short glimpse through the window: ...a couple, slowly passing by, pushing carefully their bikes ornate with the biggest possible Lidl-bags, one in front and one on the back of each bike. They looked like ants, carefully trying to roll to their anthill bigger than them a crumb of white bread. The bags were so full that I could see sticking out the products very clearly. In my mind it appears two different case scenarios, I guess you can imagine both! But inside my heart I prefer to think that they have the mission to help an older neighbour for whom it is dangerous to go out in the circumstances Mr. Coco created for us.
                     <br><br>
-                    Now our life is different in any single sense you can think of. I thought to myself - as an artist, I seek controversy, unconventional, nontraditional methods and modes of expression. I have the desire to take the daily and process it through my idiosyncratic prism, then place it back there as a complete new understanding, as a complete new mentality, as a complete new world. What was my purpose now, when everything has shifted so fast and so dramatically? What was there to be achieved or contributed? People alone have already started to slow down and turn back to themselves, observe their nature, rediscover the surroundings and realise that if we do not have the purpose to fulfill all self-created gaps in our world, that does not matter. It matters only to us - ourselves. Most will agree with me when I say that having purpose does not give too much to anybody but ourselves. It is true. Western society grew us in the <span class="pops" data-toggle="popover" title="Testtube" data-img="images/epruvetka.jpg">Епруветка</span> 
+                    Now our life is different in any single sense you can think of. I thought to myself - as an artist, I seek controversy, unconventional, nontraditional methods and modes of expression. I have the desire to take the daily and process it through my idiosyncratic prism, then place it back there as a complete new understanding, as a complete new mentality, as a complete new world. What was my purpose now, when everything has shifted so fast and so dramatically? What was there to be achieved or contributed? People alone have already started to slow down and turn back to themselves, observe their nature, rediscover the surroundings and realise that if we do not have the purpose to fulfill all self-created gaps in our world, that does not matter. It matters only to us - ourselves. Most will agree with me when I say that having purpose does not give too much to anybody but ourselves. It is true. Western society grew us in the <span class="pops" data-toggle="popover" title="Testtube" data-img="{{ url_for( 'static', filename='images/epruvetka.jpg') }}">Епруветка</span>
                     of individualism, that disintegrated us from the needs of the rest, and made us "professionals".  Now every single body is so self fulfilled that the sense of purpose is pretty much a self centered process, giving the illusion that we have been needed. Therefore in the sense of individualism and neoliberal society I believe in the purposelessness of the people. Many times I was asking myself: can this just stop? Can we be again together, united under no political rule, untitled but true, unruly but together. Why unruly you would say! Because order creates the outlet of chaos, because lack of freedom( freedom in its true essence) is an outlet of rebellion. I do not see peace in any of those events and I wonder why we have been led so blindly to enter cooperative rule in the first place. It seems that no one intended peace, then why unions were created. Only for Economic reasons? It seems inevitable, all these doom scenarios were truly led by malicious, opportunistic, manipulative practices correlating with surveillance capitalism. That is in fact what brings me down. Mr. Coco enhanced the contrasting realities crowned by the false notion of freedom. 
  
                     
@@ -482,7 +484,7 @@ src: url("images/fonts/robotomono-regular.ttf");
                 
                 <div class="ninoDiv" style="font-style: italic;">
                     <div class="ninoImgDiv">
-                        <img class="avNino" src="images/nino.png" >
+                        <img class="avNino" src="{{ url_for( 'static', filename='images/nino.png') }}" >
                     </div>
                     <p style="font-style: normal;">It is good if we place this here:</p>
                     <p>“Contrary to popular belief, it is given to artists, not politicians, to create a new world order.” </p>
@@ -490,7 +492,7 @@ src: url("images/fonts/robotomono-regular.ttf");
                 </div>
                 
                 <div class="totkoDiv">
-                    <div class="totkoImgDiv"><img class="avTotko" src="images/totko_smooth.png" ></div>
+                    <div class="totkoImgDiv"><img class="avTotko" src="{{ url_for( 'static', filename='images/totko_smooth.png') }}" ></div>
                     
                     In fact Mr. Coco has brought with his rage the polemic of union today. Unions (global political, health..) failed to achieve common understanding, the professionals whose role was to react on time and with proper measures - unsuccessful, while self organized society working towards what the system has failed to provide - care.
                 </div>
@@ -506,7 +508,7 @@ src: url("images/fonts/robotomono-regular.ttf");
                 <div class="breakDiv"></div>
                 <div class="bendidaDiv">
                     <div class="bendidaImgDiv">
-                        <img class="avBendida" src="images/iara.png" >
+                        <img class="avBendida" src="{{ url_for( 'static', filename='images/iara.png') }}" >
                     </div>
                         During her childhood she has been dedicated to many hobbies, besides her regular studies. Without the knowledge of her parents at age of 7 she already participated beside all school activities in several workshops such as biology science(at the scientific and technical union of Sliven), puppetry crafts and sewing mastery (at the former pioneer home), theater, painting and drawing. She had her busy daily life including the shared household responsibilities together with her older sister Zvezditsa, which by the way she adored and followed like a programmed robot puppet even though she had been defined by her parents as an outstanding individualist. 
                         <br><br>
@@ -554,8 +556,8 @@ src: url("images/fonts/robotomono-regular.ttf");
                     <br>but the fight goes on..." 
 
                 <br></div>
-                <div class="viviDiv"><img class="avVivi" src="images/vivi_head.png" >
-                <br><br>… me sitting up on the shoulders of my father and blowing, with all power that I have, <span class="pops" data-toggle="popover" data-img="images/tromba.png">a horn.</span> I was one of the youngest to celebrate our freedoms and I received the surrounding adoration including from this smiling man approaching us. This was the first time I saw <span class="accordion">Mr. Terziev</span>.
+                <div class="viviDiv"><img class="avVivi" src="{{ url_for('static', filename='images/vivi_head.png') }}" >
+                <br><br>… me sitting up on the shoulders of my father and blowing, with all power that I have, <span class="pops" data-toggle="popover" data-img="{{ url_for('static', filename='images/tromba.png') }}">a horn.</span> I was one of the youngest to celebrate our freedoms and I received the surrounding adoration including from this smiling man approaching us. This was the first time I saw <span class="accordion">Mr. Terziev</span>.
                 <div class="panel">
                     Between the crowd I remember vividly a man with long curly hair who passed by blowing a horn. He saluted me with the most heartwarming smile. His horn sounded funny, I thought. This moment marked our common moment of happiness, and future friendship. My mommy told me - Greet gospodin Terziev, so I did - very shy. Gospodin Terziev was the creator and the director of the Art school where I graduated Icon-painting later on. He was my painting teacher. Iconic figure fighting for justice and equality, the one who led peaceful protests and was followed by the entire intellectual guild of Sliven. He was the one to connect, and never separated anyone, for he found the concept of divide and rule despicable. I knew he had something magical - reading the innermost, the human spirit condition and influencing it with his goodness. Not by accident he was a painter - not just a painter but a virtuoso of the brush and colours - for he would bring so much color in our days. He was the most kind soul I ever knew, he is my example, my role model, my creator.
                 </div>
@@ -576,7 +578,7 @@ src: url("images/fonts/robotomono-regular.ttf");
                 <div class="breakDiv"></div>
                 <div class="bendidaDiv">
                     <div class="bendidaImgDiv">
-                        <img class="avBendida" src="images/iara.png">
+                        <img class="avBendida" src="{{ url_for( 'static', filename='images/iara.png') }}">
                     </div>
                     I found that letter amongst many:
                 </div>
@@ -584,7 +586,7 @@ src: url("images/fonts/robotomono-regular.ttf");
                 <div class="breakDiv"></div>
 
                 <div class="viviDiv" >
-                    <span class="accordion"><h3>To Baba Mitka and Diado Ancho</h3></span>
+                    <h3 class="accordion">To Baba Mitka and Diado Ancho</h3>
                     <div class="panel">
                         Baba(Баба) means Grandma, Diado(Дядо) means Grandpa = Grandma Mitka and Grandpa Ancho. Ancho is a small form for Ivan. Ivan - Ivancho - Ancho.
                     </div>
@@ -628,7 +630,7 @@ src: url("images/fonts/robotomono-regular.ttf");
                     <br>
                 </div>              
 
-                <div class="viviDiv"><img class="avVivi" src="images/vivi_head.png" >
+                <div class="viviDiv"><img class="avVivi" src="{{ url_for( 'static', filename='images/vivi_head.png') }}" >
                     <h2>Catalyst</h2>
                     Vanina - <span class="accordion">Lavina</span> or Vanche - Avalanche
                     <div class="panel">
@@ -661,11 +663,11 @@ src: url("images/fonts/robotomono-regular.ttf");
                 </div>
                 <div class="totkoDiv">
                     <div class="totkoImgDiv" >
-                        <img class="avTotko" src="images/totko_smooth.png" >
+                        <img class="avTotko" src="{{ url_for( 'static', filename='images/totko_smooth.png') }}" >
                     </div>
                     Once she was talking on the phone and here is what I have recorded: <br><br>
                 </div>      
-                <div class="viviDiv"><img class="avViviR"src="images/vivi_head.png" >
+                <div class="viviDiv"><img class="avViviR" src="{{ url_for( 'static', filename='images/vivi_head.png') }}" >
                     ...The ones that I am ready to follow, I can count just on the fingers of my palm...And after all, if everyone is to choose having the privilege to construct their lives once more, I am sure most will choose instability again. Instability, but conscious! And, please embrace that. Once it is conscious, no predestined outcome is ever predicted. Let predictability fade away. Because you know to not just justify, but accept and appreciate each moment and what it brings to you! Think, what that brings to you, while you know we all change simultaneously and there is nothing permanent! We are able to live day by day and point our wisdom forward as a lit torch. - There we go! Where? Nowhere! That's the truth...  
                     <br><br>
                     ...In my mind sounds <a href="https://www.youtube.com/watch?v=FTeTaXJruhU" target="_blank">Alfred Schnittke's The Glass Harmonica</a>, or is my life more of <a href="https://www.youtube.com/watch?v=M3EuHTOLG8o" target="_blank">Story of an unknown actor</a>...
@@ -674,7 +676,7 @@ src: url("images/fonts/robotomono-regular.ttf");
                                 
                 <div class="totkoDiv">
                     <div class="totkoImgDiv" >
-                        <img class="avTotko" src="images/totko_smooth.png" >
+                        <img class="avTotko" src="{{ url_for( 'static', filename='images/totko_smooth.png') }}" >
                     </div>
                     
                     She is not just a single repercussion, but a catalyst of people's rebirth and facing no fear of failure, fragility, public rejection or being afraid of pointed at as an outkast; She is the transformator of all fears into self-judgement, self-acceptance, self-realization.
@@ -682,13 +684,13 @@ src: url("images/fonts/robotomono-regular.ttf");
                 </div>
                 <div class="ninoDiv">
                     <div class="ninoImgDiv" >
-                        <img class="avNino" src="images/nino.png" >
+                        <img class="avNino" src="{{ url_for( 'static', filename='images/nino.png') }}" >
                     </div>
                     We knew that lately she has been accused of knowing what she wants to pursue and together with that "...her confident glow irritated many of us..." - Somebody said greasy! 
                 </div>
                 <div class="totkoDiv">
                     <div class="totkoImgDiv" >
-                        <img class="avTotko" src="images/totko_smooth.png" >
+                        <img class="avTotko" src="{{ url_for( 'static', filename='images/totko_smooth.png') }}" >
                     </div>                  
                     - Here we go, you'll say. She is making the same mistake. She seems to look for the approval of the rest and even look as authority in their eyes? I guess she is hated for that. 
                     <br><br>
@@ -697,7 +699,7 @@ src: url("images/fonts/robotomono-regular.ttf");
                 </div>
                 <div class="bendidaDiv" style="color:black;">
                     <div class="bendidaImgDiv" style="margin-top:-150px;">
-                        <img class="avBendida" src="images/iara.png" >
+                        <img class="avBendida" src="{{ url_for( 'static', filename='images/iara.png') }}" >
                     </div>
                     <p style="color:#ffec82;">During the first year of her master studie she received reaction on her participation in the class ‘Testifying Practices’ of Bibi Straatman:</p>
                     <br><br>
@@ -734,7 +736,7 @@ src: url("images/fonts/robotomono-regular.ttf");
             </div>
 <!-- ###### --> <div class="professionalia">
                     <div class="breakDiv" style="height:900px;text-align:center;position: relative;padding-top: 250px;">
-                        <img style="height: 100%;position: relative" src="images/anatomy10.png">
+                        <img style="height: 100%;position: relative" src="{{ url_for( 'static', filename='images/anatomy10.png') }}">
                         
                     </div>
                     <br><br>
@@ -745,7 +747,7 @@ src: url("images/fonts/robotomono-regular.ttf");
                     </h2>
                     <div class="totkoDivProf">
                         <div class="totkoImgDiv">
-                            <img class="avTotko" src="images/totko_smooth.png" >
+                            <img class="avTotko" src="{{ url_for( 'static', filename='images/totko_smooth.png') }}" >
                         </div>
                         Her professional life started in her early age. Name it chain of coincidences or an early blossom, her interests regarding arts were developed naturally from her childhood throughout her teenagehood and now. I believe that not all art has to be learned, but as in her case, to be just her way of life/her being. As a child she would play in the sand and find clay from which she would create small and very realistic portraits of her grandma. Later she learned that what she did was named sculpture and the shock on the face of her basic teacher asking if she really made that is a good example. As most ancient sculptures and cave drawings inherited from our ancestors, whose necessity to reproduce what they see or embrace, you can say she'd naturally start from that point on to develop her artistry. The theater sketches she would play each day after school 'secretly' exaggerating the problems of the adults would turn a constant 'secret' entertainment of the adults themself. Her visionary world was more than a play, her talent to comically recreate the problems of the older became a learning behavioral platform for her parents/grandparents and neighbours. Named 'the little philosopher' and 'the crazy moving sound machine', the essence of what she did or touched was dressed with ethics. 
      
@@ -776,7 +778,7 @@ src: url("images/fonts/robotomono-regular.ttf");
                 
                     <div class="bendidaDivProf">
                         <div class="bendidaImgDiv">
-                            <img class="avBendida" src="images/iara.png">
+                            <img class="avBendida" src="{{ url_for( 'static', filename='images/iara.png') }}">
                         </div>
                         In the question about her ways of investigating her work, she said:
                     </div>
@@ -793,7 +795,7 @@ src: url("images/fonts/robotomono-regular.ttf");
                 
                     <div class="totkoDivProf">
                         <div class="totkoImgDiv" >
-                            <img class="avTotko" src="images/totko_smooth.png" >
+                            <img class="avTotko" src="{{ url_for( 'static', filename='images/totko_smooth.png') }}" >
                         </div>
                         <h3 style="color:black;">His-Story / Re-legion</h3>
                         ...There was something really disturbing about history, it was a subject that took a lot of energy to understand and was hard to grasp. After some years, in her teenage years, she realized that history is the most geopolitical subject matter of interest and she started to question all that facts, all that terminology having no analogy with our customs and beliefs in Bulgaria. Her history teacher by that time was <span class="accordion">Lilia Eqiuvska</span> and in their debates together she advised her to: "...search, and never trust or rely upon the facts and years given, read all literature that you can find, my dear child”, were her words, “and you will find the truth.” 
@@ -804,7 +806,7 @@ src: url("images/fonts/robotomono-regular.ttf");
                 
                     <div class="ninoDivProf">
                         <div class="ninoImgDiv">
-                            <img class="avNino" src="images/nino.png" >
+                            <img class="avNino" src="{{ url_for( 'static', filename='images/nino.png') }}" >
                         </div>
                         Something very relevant today are Orwell's quotations, so that belongs here:
                     </div>
@@ -891,7 +893,7 @@ src: url("images/fonts/robotomono-regular.ttf");
                 
                     <div class="bendidaDivProf">
                         <div class="bendidaImgDiv">
-                            <img class="avBendida" src="images/iara.png">
+                            <img class="avBendida" src="{{ url_for( 'static', filename='images/iara.png') }}">
                         </div>
                         We say that man is spirit, soul and body. This means thought, words and deeds. Thoughts have been already proven to be a higher energy - the creative power; the words are the influential tools of expression, so the deeds remain. 
                     </div>
@@ -904,7 +906,7 @@ src: url("images/fonts/robotomono-regular.ttf");
                 
                     <div class="ninoDivProf">
                         <div class="ninoImgDiv">
-                            <img class="avNino" src="images/nino.png">
+                            <img class="avNino" src="{{ url_for( 'static', filename='images/nino.png') }}">
                         </div>
                         How to be confident in your vulnerability is Vanina's magnum opus. When presenting or performing she often intends to break the formality through short peculiar actions and/or enhancing one certain feeling throughout the entire piece. The awkwardness that is created as a result is her tool to bring forward and activate our true nature, counterpointing all expectations, and changing our perception of 'normal' condition. The appearance of Vanina is a constant variable magnitude in attempt to give the audience a time breaker of all stereotypes, and create a new sense of belonging. This turns to be the identity naturally embedded in We, Ourselves and Us.  
                     </div>
@@ -914,12 +916,12 @@ src: url("images/fonts/robotomono-regular.ttf");
                         My first performance was not planned, it just occurred naturally breaking the oficial mood at a public ceremony in Minerva academy. I cannot remember the occasion, but I remember the surprise and the reactions of the people. It was hilarious and open. This was the beginning of me being a performer, and I thought to myself that I would like to keep forth this latitude. Action-reaction.   
                     </div>
                     <div class="extraDivProf">
-                        <h2 style="color:black;" id="space" onmouseover="playSpace()">SPACE IS THE PLACE</h2>
-                        <audio preload="preload" src="images/Space_is_the_Place.mp3" volume="0.3"></audio>
+                        <h2 style="color:black;" class="space" onmouseover="playSpace()">SPACE IS THE PLACE</h2>
+                        <audio preload="none" src="{{ url_for('static', filename='audio/Space_is_the_Place.mp3') }}" volume="0.3"></audio>
                     </div>
                     <div class="totkoDivProf">
                         <div class="totkoImgDiv">
-                            <img class="avTotko" src="images/totko_smooth.png" >
+                            <img class="avTotko" src="{{ url_for( 'static', filename='images/totko_smooth.png') }}" >
                         </div>
                         She never approaches space - space approaches her. She senses the space, encounters the space, and reacts to it.
 
@@ -930,7 +932,7 @@ src: url("images/fonts/robotomono-regular.ttf");
                         
                             <div class="panel" style="font-style: italic;">
                                 <h3>Gustav Metzger - Environment vs Nature</h3>
-                                <img src="images/metzger.jpg" style="display:block ;margin-left: auto; margin-right: auto; margin-bottom: 18px">
+                                <img src="{{ url_for('static', filename='images/metzger.jpg') }}" style="display:block ;margin-left: auto; margin-right: auto; margin-bottom: 18px">
                                 <span style="font-style: normal;">I am fascinated by the book "Auto-destructive art" from Gustav Metzger and I often use it as a reference to my work. In some of my performances I like to read this part of the book:</span>
                                 <br>
                                 <br>First we had Nature.
@@ -966,7 +968,7 @@ src: url("images/fonts/robotomono-regular.ttf");
                                     - The characters seemed to appear from nothing - from a closed door hidden behind dark curtains;
                                     <div class="panel" style="text-align: center;">
                                         
-                                        <img src="images/vondelbunker01.png" style="max-height: 300px;">    
+                                        <img src="{{ url_for('static', filename='images/vondelbunker01.png') }}" style="max-height: 300px;">
                                     </div>
                                 </li>
                                     
@@ -974,14 +976,14 @@ src: url("images/fonts/robotomono-regular.ttf");
                                     In <span class="accordion">Kink</span> the character Totko appeared from the elevator that was located next to my interactive video installation; The space that I chose intensified the clash between both realities - virtual embodiment vs. physical embodiment.
                                     <div class="panel" id="kink">
                                         <h4>Kink Assen</h4>
-                                        <video src="images/kink01.MP4" height="560px" muted loop></video>   
+                                        <video src="{{ url_for('static', filename='videos/kink01.MP4') }}" height="560px" muted loop></video>
                                     </div>
                                 </li>
                                 <li>
                                     <span class="accordion">Basement of FMI</span> was turned into an underground club. DJ-booth hosting the tunes from customized turntable, Cracklebox, and visuals consisting of glitching balls/installation and interactive screen as part of the VJ-show. The characters had access to the pass doors and could walk in, dance and go away during the performance. 
                                     <div class="panel" id="basement" style="text-align: center;">
                                         
-                                        <video src="images/basement.MP4" height="560px" muted loop></video> 
+                                        <video src="{{ url_for('static', filename='videos/basement.MP4') }}" height="560px" muted loop></video>
                                     </div>
                                 </li>
                                 <li>
@@ -1013,7 +1015,7 @@ src: url("images/fonts/robotomono-regular.ttf");
                     </div>
                     <div class="ninoDivProf">
                         <div class="ninoImgDiv">
-                            <img class="avNino" src="images/nino.png">
+                            <img class="avNino" src="{{ url_for( 'static', filename='images/nino.png') }}">
                         </div>
                         As a poetic artist, romantic, irrational and always questioning, she tends to observe time in its phenomenologie and how we experience time, time based on our emotional conditions. For some reason we twist the perception of time, we tend to remember just moments, but not the entire days, months, years. By exploiting the topic of timelessness, she can enhance the importance of that moment, where time is the polarity of timelessness. She expands time by repetition of a single moment - there is no start, or end.                  
                     </div>
@@ -1070,7 +1072,7 @@ src: url("images/fonts/robotomono-regular.ttf");
                     </div>
                     <div class="ninoDivProf">
                         <div class="ninoImgDiv">
-                            <img class="avNino" src="images/nino.png" >
+                            <img class="avNino" src="{{ url_for( 'static', filename='images/nino.png') }}" >
                         </div>
                         In 2018 with my moral support, Vanina considered again the research from 2014 as the beginning of the new one. This gave birth to We, Ourselves and Us - a family of Kukeri creatures. 
                         <br> I received new friends - 
@@ -1080,17 +1082,17 @@ src: url("images/fonts/robotomono-regular.ttf");
                     <div class="viviDivProf">
                         <div style="display: table;margin-left: -25%;margin-right: -25%">
                             <div style="position: relative;display: table-cell;width:30%;">
-                                <img src="images/totko_smooth.png" style="width:100%;padding: 18px">
+                                <img src="{{ url_for( 'static', filename='images/totko_smooth.png') }}" style="width:100%;padding: 18px">
                                 <h3>Totko - Control Freak</h3>
                                 Totko is the educator, but also appears to be the leader. He takes the initiative and organizes everything around him with ease. He likes to control the situation, and often perfectionism is what drives him to the accomplishment of things. Everybody follows him, even though he’s not always right. But he has a good heart, and a friendly nature.
                             </div>
                             <div style="position: relative;display: table-cell;width:30%;padding: 18px">
-                                <img src="images/nino.png" style="width:100%;">
+                                <img src="{{ url_for( 'static', filename='images/nino.png') }}" style="width:100%;">
                                 <h3>Nino - Nino is bored, since he is not Tsar anymore</h3>
                                 Nino is the oldest. He is respected for his wisdom, but often you can find him entertaining himself with strange things.. For example trying to eat a cat while petting it. Waiting to scare the postman through the postbox hole. Watching the neighbour’s TV outside their window, while eating snacks together with the package. He’s loveable and you can pet him. But don’t overdo, because he would like to eat you.
                             </div>
                             <div style="position: relative;display: table-cell;width:30%; padding: 18px">
-                                <img src="images/iara.png" style="width:85%;">
+                                <img src="{{ url_for( 'static', filename='images/iara.png') }}" style="width:85%;">
                                 <h3>Bendida - The fast paws</h3>
                                 Bendida is named after the Thracian mother goddess Bendida (in Greek mythology represented by Artemis). Bendida possesses magnifying radians, she attracts so easily friends, everybody adores her company. She is always surrounded by the love of all little cute beasts, birds on her shoulder, butterflies on her eyebrow. She protects them, and treats them with much love. Bendida has the supernatural gift to always be there when somebody is in trouble, to help out.
                             </div>
@@ -1145,7 +1147,7 @@ src: url("images/fonts/robotomono-regular.ttf");
                             <br><br>
                             "I see free improvisation as a moment in space and time where the participating musicians create a kind of *tabula rasa* for the brain; impeding thoughts and processes are (or should be) banned, so that every creative spark (or *improvisational impulse*) gets the chance to be seen and acted upon. If there's too much distracting neural fireworks, the one that's relevant for the improvisation situation might not be seen.
                             <br><br>
-                            Reminiscent to a *cloud chamber*, where passing energetic particles are made visible by setting up a sealed environment with supersaturated vapor {#54729}, the improviser catches and materializes improvisational impulses into actions.
+                            Reminiscent to a *cloud chamber*, where passing energetic particles are made visible by setting up a sealed environment with supersaturated vapor [#54729], the improviser catches and materializes improvisational impulses into actions.
                             <br><br>
                             In a way many 'doors of perception' are opened up; actions and reactions are encouraged to happen and to be sensed, which demands a special kind of attention. Not only auditory content and cues are important, but the whole presence of the performer. Improvisation is embodied creation, engaging multi-dimensional communication."
                             <br>
@@ -1156,7 +1158,7 @@ src: url("images/fonts/robotomono-regular.ttf");
                     </div>
                     <div class="ninoDivProf">
                         <div class="ninoImgDiv">
-                            <img class="avNino" src="images/nino.png">
+                            <img class="avNino" src="{{ url_for( 'static', filename='images/nino.png') }}">
                         </div>
                         She was a stigmatized musical invalid. It was a silly childhood memory that did not let her develop her musical pashion further. Probably this is the time to continue on that path. All though the continuation would never be the same. Gradually, during the last couple of months she gained more experience while studying and experimenting with Ableton Life. Now it feels like Ableton is for life - this program became an extension of her emotional expression. 
                     </div>
@@ -1184,7 +1186,7 @@ src: url("images/fonts/robotomono-regular.ttf");
                     
                     <div class="bendidaDivProf">
                         <div class="bendidaImgDiv">
-                            <img class="avBendida" src="images/iara.png">
+                            <img class="iara" src="{{ url_for( 'static', filename='images/iara.png') }}">
                         </div>
                         She is a romantic philomath - Her studies go in so many directions that the knowledge presented is a beautiful chaos in its order.
                     </div>
@@ -1270,9 +1272,9 @@ src: url("images/fonts/robotomono-regular.ttf");
             
         </div>
     </div>
-    <audio id="home" src="images/audio/Creatures having dinner.mp3" volume="0.3" loop=""></audio>
-    <audio id="prof" src="images/audio/Auch_web.mp3" volume="0.3" loop=""></audio>
-    <audio id="pers" src="images/audio/31-01-2020.mp3" volume="0.3" loop=""></audio>
+    <audio id="home" src="{{ url_for( 'static', filename='audio/Creatures having dinner.mp3') }}" volume="0.3" loop=""></audio>
+    <audio id="prof" src="{{ url_for( 'static', filename='audio/Auch_web.mp3') }}" volume="0.3" loop=""></audio>
+    <audio id="pers" src="{{ url_for( 'static', filename='audio/31-01-2020.mp3') }}" volume="0.3" loop=""></audio>
 </div>
 
 <script type="text/javascript">
