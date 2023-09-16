@@ -5,8 +5,8 @@ let IsPlaying = false;
 let R, centerW, centerH;
 
 function preload(){
-	totko = createVideo('static/videos/totkoGlitchEarth.mp4', afterLoad);
-	sound1 = loadSound('static/audio/Minions.mp3', afterLoad, errorLoad, progressLoad);
+	totko = createVideo('storage/videos/totkoGlitchEarth.mp4', afterLoad);
+	sound1 = loadSound('storage/audio/Minions.mp3', afterLoad, errorLoad, progressLoad);
 	
 }
 function errorLoad(e){

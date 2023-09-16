@@ -11,7 +11,7 @@ let x = 100,
 
 
 function preload(){
-	pig = loadImage("static/images/vivi3.png");
+	pig = loadImage("storage/images/vivi3.png");
 //	sound = loadSound("static/audio/MeMony.mp3");
 //	sound.setVolume(0);
 }

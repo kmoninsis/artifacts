@@ -6,8 +6,8 @@ let S,
     B;
 
 function preload(){
-  vid = createVideo('static/videos/cracklebox.mp4', afterLoad);
-  visual = createVideo('static/videos/visual.mp4', afterLoad);
+  vid = createVideo('storage/videos/cracklebox.mp4', afterLoad);
+  visual = createVideo('storage/videos/visual.mp4', afterLoad);
   vid.hide();
   visual.hide();
   

@@ -20,9 +20,9 @@ let x = 1,
 	scroll;
 
 function preload(){
-	iara = loadImage('static/images/iara.png', afterLoad);
-	nino = loadImage('static/images/nino.png', afterLoad);
-	sound1 = loadSound('static/audio/Wubi.mp3', afterLoad);
+	iara = loadImage('storage/images/iara.png', afterLoad);
+	nino = loadImage('storage/images/nino.png', afterLoad);
+	sound1 = loadSound('storage/audio/Wubi.mp3', afterLoad);
 	font = loadFont('static/fonts/fixedsys.ttf', afterLoad);
 	strings = loadStrings('static/thesis.txt', afterLoad);
 }

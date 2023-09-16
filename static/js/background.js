@@ -19,7 +19,7 @@ let totko,
 
 
 function preload(){
-	totko = loadImage("static/images/totko.png");
+	totko = loadImage("storage/images/totko.png");
 	fixedsys = loadFont("static/fonts/fixedsys.ttf");
 //	sound = loadSound("static/audio/Creature_sound.mp3");
 //	sound.setVolume(0);

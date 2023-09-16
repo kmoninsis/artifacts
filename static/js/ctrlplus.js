@@ -1,7 +1,7 @@
 
 let theta = 0;
 let theta2 = 0;
-let videos = ['static/videos/ctrlplus_black.mp4','static/videos/ctrlplus_white.mp4'];
+let videos = ['storage/videos/ctrlplus_black.mp4','storage/videos/ctrlplus_white.mp4'];
 
 function preload(){
   for (x in videos){

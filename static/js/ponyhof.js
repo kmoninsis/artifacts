@@ -11,42 +11,42 @@ let mainDiv,
 	let currVid,
 		currGif,
 		showVid;
-let urls = ['static/videos/ponyhof/1Okalinka01.mp4',
-			'static/videos/ponyhof/2bike1.mp4',
-			'static/videos/ponyhof/3guitar.mp4',
-			'static/videos/ponyhof/4Okalinka02.mp4',
-			'static/videos/ponyhof/5OLDhike.mp4',
-			'static/videos/ponyhof/6behindthree.mp4',
-			'static/videos/ponyhof/7Okalinka03.mp4',
-			'static/videos/ponyhof/8bike2.mp4',
-			'static/videos/ponyhof/9Swinging.mp4',
-			'static/videos/ponyhof/10Okalinka04.mp4',
-			'static/videos/ponyhof/11chelo1.mp4',
-			'static/videos/ponyhof/12Car.mp4',
-			'static/videos/ponyhof/13Okalinka05.mp4',
-			'static/videos/ponyhof/14bike3.mp4',
-			'static/videos/ponyhof/15OLDhidingbehindthree.mp4',
-			'static/videos/ponyhof/16Okalinka06.mp4',
-			'static/videos/ponyhof/17OLDhike2.mp4',
-			'static/videos/ponyhof/18Party.mp4'];
-let gifs = ['static/images/placeholder0.gif',
-			'static/images/placeholder1.gif',
-			'static/images/placeholder2.gif',
-			'static/images/placeholder3.gif',
-			'static/images/placeholder4.gif',
-			'static/images/placeholder5.gif',
-			'static/images/placeholder6.gif',
-			'static/images/placeholder7.gif',
-			'static/images/placeholder8.gif',
-			'static/images/placeholder9.gif',
-			'static/images/placeholder10.gif',
-			'static/images/placeholder11.gif',
-			'static/images/placeholder12.gif',
-			'static/images/placeholder13.gif',
-			'static/images/placeholder14.gif',
-			'static/images/placeholder15.gif',
-			'static/images/placeholder16.gif',
-			'static/images/placeholder17.gif'];
+let urls = ['storage/videos/ponyhof/1Okalinka01.mp4',
+			'storage/videos/ponyhof/2bike1.mp4',
+			'storage/videos/ponyhof/3guitar.mp4',
+			'storage/videos/ponyhof/4Okalinka02.mp4',
+			'storage/videos/ponyhof/5OLDhike.mp4',
+			'storage/videos/ponyhof/6behindthree.mp4',
+			'storage/videos/ponyhof/7Okalinka03.mp4',
+			'storage/videos/ponyhof/8bike2.mp4',
+			'storage/videos/ponyhof/9Swinging.mp4',
+			'storage/videos/ponyhof/10Okalinka04.mp4',
+			'storage/videos/ponyhof/11chelo1.mp4',
+			'storage/videos/ponyhof/12Car.mp4',
+			'storage/videos/ponyhof/13Okalinka05.mp4',
+			'storage/videos/ponyhof/14bike3.mp4',
+			'storage/videos/ponyhof/15OLDhidingbehindthree.mp4',
+			'storage/videos/ponyhof/16Okalinka06.mp4',
+			'storage/videos/ponyhof/17OLDhike2.mp4',
+			'storage/videos/ponyhof/18Party.mp4'];
+let gifs = ['storage/images/placeholder0.gif',
+			'storage/images/placeholder1.gif',
+			'storage/images/placeholder2.gif',
+			'storage/images/placeholder3.gif',
+			'storage/images/placeholder4.gif',
+			'storage/images/placeholder5.gif',
+			'storage/images/placeholder6.gif',
+			'storage/images/placeholder7.gif',
+			'storage/images/placeholder8.gif',
+			'storage/images/placeholder9.gif',
+			'storage/images/placeholder10.gif',
+			'storage/images/placeholder11.gif',
+			'storage/images/placeholder12.gif',
+			'storage/images/placeholder13.gif',
+			'storage/images/placeholder14.gif',
+			'storage/images/placeholder15.gif',
+			'storage/images/placeholder16.gif',
+			'storage/images/placeholder17.gif'];
 function preload(){
 	
 					
@@ -158,15 +158,15 @@ function draw() {
 	// print( placeholder[0].value('left'));
 }
 
-
-function mouseDragged(){
-	let posX = windowWidth/2;
-	let posY = windowHeight/2;
-
-	let drag = mouseX - pmouseX;
-	let seqLength = w*vids.length;
-	maxLeft = seqLength-windowWidth;
-
-	initX += drag;
-	initX = constrain(initX, -maxLeft,0);
-}
+//
+//function mouseDragged(){
+//	let posX = windowWidth/2;
+//	let posY = windowHeight/2;
+//
+//	let drag = mouseX - pmouseX;
+//	let seqLength = w*vids.length;
+//	maxLeft = seqLength-windowWidth;
+//
+//	initX += drag;
+//	initX = constrain(initX, -maxLeft,0);
+//}

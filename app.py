@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, send_from_directory
 import os
 
 app = Flask(__name__)
@@ -143,6 +143,14 @@ def ponyhof():
     FOOTERS[1]["href"] = 'ctrlv'
 
     return render_template('base.html', sketch='js/ponyhof.js', footers=[FOOTERS[1]])
+
+
+storage_path = os.environ['STORAGE_PATH']
+
+
+@app.route('/storage/<path:filename>')
+def storage(filename):
+    return send_from_directory(storage_path, filename)
 
 
 if __name__ == '__main__':
