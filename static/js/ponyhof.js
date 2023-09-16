@@ -82,12 +82,13 @@ function setup() {
 	galleryDiv.class('galleryDiv');
 	galleryDiv.style('z-index','10');
 	galleryDiv.style('position','absolute');
-	galleryDiv.style('overflow','hidden');
+	galleryDiv.style('overflow','scroll');
 	galleryDiv.style('width','100%');
 	galleryDiv.style('top','50%');
 	galleryDiv.style('height','20vh');
 	galleryDiv.style('border','none');
 	galleryDiv.style('margin-top','-10vh');
+	galleryDiv.style('display','inline-flex');
 
 	mainDiv = createDiv();
 	mainDiv.class('mainDiv');
