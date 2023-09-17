@@ -145,6 +145,16 @@ def ponyhof():
     return render_template('base.html', sketch='js/ponyhof.js', footers=[FOOTERS[1]])
 
 
+@app.route('/about')
+def about():
+    return render_template('about.html', sketch='js/about.js', audio='audio/Music_moni.mp3')
+
+
+@app.route('/praise')
+def praise():
+    return render_template('praise.html', sketch='js/about.js', audio='audio/Running Away.mp3')
+
+
 storage_path = os.environ['STORAGE_PATH']
 
 

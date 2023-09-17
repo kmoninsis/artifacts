@@ -1,16 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base.html' %}
+{% block head %}
 
-<head>
-	<title>Vanina Tsvetkova</title>	
-	<meta charset="utf-8" />
-	<meta name="viewport" content = "width=device-width, initial-scale=1.0">
-	 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.min.js"></script>
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/addons/p5.sound.min.js"></script>
-	<script  type="text/javascript" src="sketches/about.js"></script>
 	<style type="text/css">
 		html, body {
   height: 100%;
@@ -71,12 +63,11 @@ body {
 	top: 50px;
 }
 	</style>
-</head>
-<body>
-	
+{% endblock %}
 
-	
-<a  href="professionalia.html"><img class="info" id="praise" src="images/obj08sm.png" ></a>
+{% block body %}
+
+<a  href="{{ url_for('professionalia') }}"><img class="info" id="praise" src="{{ url_for('storage', filename='images/obj08sm.png') }}" ></a>
 
 <div class="text">
 		Word of Praise:
@@ -94,7 +85,7 @@ Thanks to all lovely people in FMI - you know who you are:)
 To my friends and family for being part of what I am. 
 <br><br>
 
-<img id="ninomoon" src="images/nino-moon.gif">
+<img id="ninomoon" src="{{ url_for('storage', filename='images/nino-moon.gif') }}">
 <div class="friends">
 	To all the creature's Friends:
 <br><br>
@@ -121,12 +112,4 @@ Quintus Glerum <br><br>
 
 </div>
 </div>
-<audio id="pers" src="images/audio/Running Away.mp3" volume="0.0"  autoplay="true" loop="true"></audio>
-
-
-<footer>
-	<!-- <a id="totko" href="osculator.html"><img src="images/totkoR.png" ></a> -->
-</footer>
-</body>
-
-</html>
+{% endblock %}
