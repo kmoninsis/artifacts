@@ -69,7 +69,7 @@ def professionalia():
 			'images/obj18sm.png', \
 			'images/cracklebox.png', \
 			'images/anatomy03sm.png']
-    return render_template('professionalia.html', images=imgs)
+    return render_template('professionalia.html', sketch='js/personalia_title.js', images=imgs)
 
 
 @app.route('/dont-mess-with-my-world')
