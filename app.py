@@ -78,8 +78,8 @@ def world():
     FOOTERS[0]["href"] = 'wubidubidubidu'
     FOOTERS[1]["href"] = 'portal'
 
-    # return render_template('base.html', sketch='js/movingvid.js', footers=FOOTERS, audio='audio/Minions.mp3', video='videos/totkoGlitchEarth.mp4')
-    return render_template('base.html', sketch='js/movingvid.js', footers=FOOTERS)
+    return render_template('base.html', footers=FOOTERS, audio='audio/Minions.mp3', video='videos/totkoGlitchEarth.mp4')
+    #return render_template('base.html', sketch='js/movingvid.js', footers=FOOTERS)
 
 
 @app.route('/wubidubidubidu')
