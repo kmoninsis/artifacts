@@ -1,8 +1,17 @@
 from flask import Flask, render_template, send_from_directory
 import os
+import logging
 
 app = Flask(__name__)
 
+if __name__ != '__main__':
+    gunicorn_logger = logging.getLogger('gunicorn.error')
+    if len(gunicorn_logger.handlers) != 0:
+        app.logger.handlers = gunicorn_logger.handlers
+        app.logger.setLevel(gunicorn_logger.level)
+        app.logger.debug('using Gunicorn logger')
+    else:
+        app.logger.debug('using Flask logger')
 FOOTERS = [
         {'id': 'totkoR', 'href': 'index', 'side': 'images/totkoR.png'},
         {'id': 'totkoL', 'href': 'index', 'side': 'images/totko.png'}
@@ -12,6 +21,7 @@ FOOTERS = [
 @app.route('/')
 def index():
     FOOTERS[0]["href"] = 'osculator'
+    app.logger.debug('request received')
     return render_template('base.html', sketch='js/background.js', footers=[FOOTERS[0]], audio='audio/Creature_sound.mp3')
 
 
