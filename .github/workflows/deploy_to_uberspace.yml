@@ -12,7 +12,7 @@ jobs:
       - name: Deploy using Rsync
         uses: burnett01/rsync-deployments@v8
         with:
-          switches: -avrh --delete --exclude=".git" --exclude=".github" --exclude="images" --exclude="env"
+          switches: -avrh --delete --exclude=".git" --exclude=".github" --exclude="assets" --exclude="env"
           path: /
           remote_path: /var/www/virtual/${{ vars.SSH_USERNAME }}/${{ vars.DOMAINNAME}}
           remote_host: ${{ vars.SSH_HOST }}
