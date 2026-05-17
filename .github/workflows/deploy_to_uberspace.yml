@@ -1,0 +1,21 @@
+name: Deploy artifacts.vaninatsvetkova.com  Website to Uberspace
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+    
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Deploy using Rsync
+        uses: burnett01/rsync-deployments@v8
+        with:
+          switches: -avrh --delete --exclude=".git" --exclude=".github" --exclude="images" --exclude="env" --dry-run
+          path: /
+          remote_path: /var/www/virtual/${{ vars.SSH_USERNAME }}/${{ vars.DOMAINNAME}}
+          remote_host: ${{ vars.SSH_HOST }}
+          remote_user: ${{ vars.SSH_USERNAME }}
+          remote_key: ${{ secrets.SSH_PRIVATE_KEY }}
+#          remote_key_pass: ${{ secrets.SSH_PRIVATE_KEY_PASS }} # Only needed if you added a passphrase upon creating the SSH key
